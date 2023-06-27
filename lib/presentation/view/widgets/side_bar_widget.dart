@@ -1,3 +1,4 @@
+import 'package:edu_crm/presentation/view/widgets/side_bar_line_widget.dart';
 import 'package:edu_crm/presentation/view/widgets/text_plus_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -20,7 +21,7 @@ class SideBarWidget extends StatelessWidget {
                   width: 28,
                   height: 28,
                   child: Image.asset(
-                    "icon1.png",
+                    "images/icon1.png",
                     width: 28,
                     height: 28,
                   ),
@@ -35,10 +36,27 @@ class SideBarWidget extends StatelessWidget {
                 ),
               ],
             ),
-            const TextPlusWidget(
-              text: "PAGES",
-              iconPath: "Plus.png",
-            )
+            const SizedBox(
+              height: 51,
+            ),
+            const Padding(
+              padding: EdgeInsets.only(right: 17),
+              child: TextPlusWidget(
+                text: "PAGES",
+                iconPath: "Plus.png",
+              ),
+            ),
+            const SizedBox(height: 11),
+            const SidebarLineWidget(
+              firstIcon: "graph.png",
+              text: "Dashboard",
+            ),
+            const SizedBox(height: 11),
+            const SidebarLineWidget(
+              firstIcon: "chart-square.png",
+              text: "Analytics",
+              isNew: true,
+            ),
           ],
         ),
       ),

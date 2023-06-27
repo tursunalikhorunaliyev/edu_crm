@@ -19,7 +19,7 @@ class TextPlusWidget extends StatelessWidget {
           ),
         ),
         Image.asset(
-          iconPath,
+          "images/$iconPath",
           width: 20.5,
           height: 20.5,
         ),
