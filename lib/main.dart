@@ -1,12 +1,11 @@
-import 'package:edu_crm/test/test_screen.dart';
+import 'package:edu_crm/presentation/view/screens/dash_board.dart';
 import 'package:flutter/material.dart';
-import 'presentation/view/widgets/top_bar.dart';
 
 void main(List<String> args) {
   runApp(
     const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: TestScreen(),
+      home: DashBoard(),
     ),
   );
 }
