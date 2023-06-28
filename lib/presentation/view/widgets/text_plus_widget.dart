@@ -14,7 +14,7 @@ class TextPlusWidget extends StatelessWidget {
           text,
           style: const TextStyle(
             color: Color(0xFF7B8190),
-            fontSize: 16,
+            fontSize: 18,
             fontWeight: FontWeight.w500,
           ),
         ),
