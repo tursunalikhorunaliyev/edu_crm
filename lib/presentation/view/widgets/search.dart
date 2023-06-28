@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Search extends StatelessWidget {
   const Search({super.key});
@@ -12,19 +13,24 @@ class Search extends StatelessWidget {
         color: const Color(0xFFF5F5FA),
         borderRadius: BorderRadius.circular(8),
       ),
-      child: const Row(
+      child: Row(
         children: [
-          SizedBox(width: 12),
-          Icon(
+          const SizedBox(width: 12),
+          const Icon(
             Icons.search,
             size: 24,
             color: Color(0xFF64748B),
           ),
-          SizedBox(width: 6),
-          Text(
-            "search...",
-            style: TextStyle(
-              color: Color(0xFFCACEDC),
+          const SizedBox(width: 6),
+          Expanded(
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: "Search...",
+                hintStyle: GoogleFonts.inter(
+                  color: const Color(0xFFCACEDC),
+                ),
+                border: const UnderlineInputBorder(borderSide: BorderSide.none),
+              ),
             ),
           )
         ],
