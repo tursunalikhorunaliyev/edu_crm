@@ -4,7 +4,7 @@ part of 'selected_button_cubit.dart';
 abstract class SelectedButtonState {
   final int index;
 
-  SelectedButtonState({required this.index});
+  const SelectedButtonState({required this.index});
 }
 
 class SelectedButtonInitial extends SelectedButtonState {
