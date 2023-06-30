@@ -44,7 +44,7 @@ class _SidebarLineWidgetState extends State<SidebarLineWidget> {
     final Color blackColor = Color(0xFFFFFFFF);
     return AnimatedContainer(
       duration: Duration(milliseconds: 400),
-      curve: Curves.bounceOut,
+      curve: Curves.easeInBack,
       width: double.infinity,
       height: widget.isTapped && widget.isTapping
           ? widget.listi.length == 0

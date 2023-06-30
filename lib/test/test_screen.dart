@@ -12,7 +12,7 @@ class TestScreen extends StatelessWidget {
       body: Row(
         children: [
           SizedBox(
-            width: 322,
+            width: 290,
             child: SideBarWidget(),
           ),
         ],
