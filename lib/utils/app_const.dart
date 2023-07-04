@@ -18,6 +18,10 @@ Color color6 = const Color(0xFFDBEAFE);
 Color color7 = const Color(0xFF334155);
 Color color8 = const Color(0xFFF1F5F9);
 
+const Color buttonColor1 = Color(0xFF5D5FEF);
+const Color buttonColor2 = Color(0xFF4F46E5);
+const Color buttonColor3 = Color(0xFFE2E8F0);
+
 Color textcolor1 = const Color(0xFF5D5FEF);
 Color textcolor2 = const Color(0xFF178DCC);
 Color textcolor3 = const Color(0xFF059691);
