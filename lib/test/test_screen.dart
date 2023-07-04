@@ -10,17 +10,24 @@ class TestScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      backgroundColor: Colors.black12,
-      body: Center(
-        child: SizedBox(
-          child: SizedBox(
-            width: 99,
-            height: 44,
-            child: ButtonWidget(
-              buttonWithRightIcon: true,
-            ),
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      body: Row(
+        children: [
+          Spacer(),
+          Column(
+            children: [
+              Spacer(),
+              ButtonWidget(
+                horizontalPadding: 12,
+                verticalPadding: 12,
+                text: "salom",
+                containerColor: Color(0xFF5D5FEF),
+              ),
+              Spacer(),
+            ],
           ),
-        ),
+          Spacer(),
+        ],
       ),
     );
   }
