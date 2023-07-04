@@ -32,7 +32,7 @@ class CustomBadge extends StatelessWidget {
           children: [
             hasIcon
                 ? Image.asset(
-                    "assets/images/pensilk.png",
+                    "images/pensilk.png",
                     cacheHeight: 24,
                     cacheWidth: 24,
                     color: textColor,
