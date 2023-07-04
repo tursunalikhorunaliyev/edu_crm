@@ -30,3 +30,7 @@ Color textcolor5 = const Color(0xFFE11D48);
 Color textcolor6 = const Color(0xFF4263EB);
 Color textcolor7 = const Color(0xFF64748B);
 Color textcolor8 = const Color(0xFFFFFFFF);
+
+double small = 105;
+double midle = 128;
+double large = 168;
