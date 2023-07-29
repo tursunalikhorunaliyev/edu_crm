@@ -57,7 +57,7 @@ class ButtonWidget extends StatelessWidget {
       ),
       child: onlyIcon
           ? Image.asset(
-              "images/add_plus.png",
+              "images/add.png",
               width: 24,
               height: 24,
               color: isDisabled
@@ -72,7 +72,7 @@ class ButtonWidget extends StatelessWidget {
               children: [
                 buttonWithLeftIcon
                     ? Image.asset(
-                        "images/add_plus.png",
+                        "images/add.png",
                         width: 24,
                         height: 24,
                         color: isDisabled
@@ -95,7 +95,7 @@ class ButtonWidget extends StatelessWidget {
                 ),
                 buttonWithRightIcon
                     ? Image.asset(
-                        "images/add_plus.png",
+                        "images/add.png",
                         width: 24,
                         height: 24,
                         color: isDisabled

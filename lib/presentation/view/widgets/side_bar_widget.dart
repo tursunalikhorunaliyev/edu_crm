@@ -13,8 +13,9 @@ class SideBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool onTap = false;
-    return Scaffold(
-      body: SingleChildScrollView(
+    return ColoredBox(
+      color: Colors.white,
+      child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 40),
           child: Column(
