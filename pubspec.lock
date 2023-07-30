@@ -65,14 +65,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.5"
+  edu_drop_down:
+    dependency: "direct main"
+    description:
+      name: edu_drop_down
+      sha256: "7df821e1b8dfa94617172113306818127e132966b3dbc0dc58dcdc8d6a361110"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.7"
   edu_selectable_part:
     dependency: "direct main"
     description:
       name: edu_selectable_part
-      sha256: "3086399e7a747f75ac2b309b944fea560df3efe3c49c60d8ee0bd8ab59e262ca"
+      sha256: dc349d7ec636c572da939d2c5b14fa28d5edcf30188aee08216e0e8a8d8d0c77
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.1"
+    version: "0.0.7"
   fake_async:
     dependency: transitive
     description:

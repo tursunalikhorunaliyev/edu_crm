@@ -1,3 +1,4 @@
+import 'package:edu_drop_down/controller/model/edu_drop_down_model.dart';
 import 'package:flutter/material.dart';
 
 List<String> eCommorceTexts = [
@@ -34,3 +35,26 @@ Color textcolor8 = const Color(0xFFFFFFFF);
 double small = 105;
 double midle = 128;
 double large = 168;
+
+List<EduDropDownModel> eduDropDownModelList = [
+  EduDropDownModel(
+    imageUrl:
+        "https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg",
+    name: "Bir Balo",
+  ),
+  EduDropDownModel(
+    imageUrl:
+        "https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg",
+    name: "Raxmatillo",
+  ),
+  EduDropDownModel(
+    imageUrl:
+        "https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg",
+    name: "Fignya",
+  ),
+  EduDropDownModel(
+    imageUrl:
+        "https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg",
+    name: "salom",
+  ),
+];

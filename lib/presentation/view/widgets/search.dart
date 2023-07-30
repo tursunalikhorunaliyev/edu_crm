@@ -7,29 +7,34 @@ class Search extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 372,
-      height: 48,
+      width: 372 / 1.5,
+      height: 48 / 1.5,
       decoration: BoxDecoration(
         color: const Color(0xFFF5F5FA),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const SizedBox(width: 12),
+          const SizedBox(width: 12 / 1.5),
           const Icon(
             Icons.search,
-            size: 24,
+            size: 24 / 1.5,
             color: Color(0xFF64748B),
           ),
           const SizedBox(width: 6),
           Expanded(
-            child: TextField(
-              decoration: InputDecoration(
-                hintText: "Search...",
-                hintStyle: GoogleFonts.inter(
-                  color: const Color(0xFFCACEDC),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5),
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: "Search...",
+                  hintStyle: GoogleFonts.inter(
+                    color: const Color(0xFFCACEDC),
+                  ),
+                  border:
+                      const UnderlineInputBorder(borderSide: BorderSide.none),
                 ),
-                border: const UnderlineInputBorder(borderSide: BorderSide.none),
               ),
             ),
           )

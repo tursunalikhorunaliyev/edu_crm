@@ -47,9 +47,9 @@ class _SidebarLineWidgetState extends State<SidebarLineWidget> {
       width: double.infinity,
       height: widget.isTapped && widget.isTapping
           ? widget.listi.length == 0
-              ? 48
-              : 33 * (widget.listi.length.toDouble() + 1)
-          : 48,
+              ? 48 / 1.5
+              : (33 * (widget.listi.length.toDouble() + 1)) / 1.5
+          : 48 / 1.5,
       alignment: Alignment.topCenter,
       decoration: BoxDecoration(
         color: widget.isTapped && widget.isTapping ? onTappedColor : blackColor,
@@ -57,13 +57,13 @@ class _SidebarLineWidgetState extends State<SidebarLineWidget> {
       ),
       child: widget.isTapping
           ? Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 12 / 1.5),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   SizedBox(
-                    height: 12,
+                    height: 12 / 1.5,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -75,7 +75,7 @@ class _SidebarLineWidgetState extends State<SidebarLineWidget> {
                         color: Color(widget.isTapped ? 0xFFFFFFFF : 0xFF3B424A),
                       ),
                       const SizedBox(
-                        width: 12,
+                        width: 12 / 1.5,
                       ),
                       Text(
                         widget.text,
@@ -89,13 +89,13 @@ class _SidebarLineWidgetState extends State<SidebarLineWidget> {
                         widget.isTapped
                             ? "images/Chevron_Down_White.png"
                             : "images/Chevron_Down.png",
-                        width: 24.06,
+                        width: 24.06 / 1.5,
                       ),
                     ],
                   ),
                   Expanded(
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 36),
+                      padding: const EdgeInsets.only(left: 36 / 1.5),
                       child:
                           BlocBuilder<SelectedButtonCubit, SelectedButtonState>(
                         bloc: indexBloc,
@@ -108,7 +108,7 @@ class _SidebarLineWidgetState extends State<SidebarLineWidget> {
                                   indexBloc.index(index);
                                 },
                                 child: SizedBox(
-                                  height: 32,
+                                  height: 32 / 1.5,
                                   child: CustomSideBarLineWidget(
                                     text: widget.listi[index],
                                     isSelected: index == state.index,
@@ -125,20 +125,20 @@ class _SidebarLineWidgetState extends State<SidebarLineWidget> {
               ),
             )
           : Padding(
-              padding: const EdgeInsets.only(top: 12),
+              padding: const EdgeInsets.only(top: 12 / 1.5),
               child: Row(
                 children: [
                   SizedBox(
-                    width: 12,
+                    width: 12 / 1.5,
                   ),
                   Image.asset(
                     "images/${widget.firstIcon}",
-                    width: 24,
-                    height: 24,
+                    width: 24 / 1.5,
+                    height: 24 / 1.5,
                     color: Color(0xFF3B424A),
                   ),
                   const SizedBox(
-                    width: 12,
+                    width: 12 / 1.5,
                   ),
                   Text(
                     widget.text,
@@ -149,12 +149,12 @@ class _SidebarLineWidgetState extends State<SidebarLineWidget> {
                   const Spacer(),
                   widget.isNew || widget.isNotification
                       ? Container(
-                          height: 23,
+                          height: 23 / 1.5,
                           padding: const EdgeInsets.only(
-                            top: 3,
-                            bottom: 4,
-                            right: 10,
-                            left: 10,
+                            top: 3 / 1.5,
+                            bottom: 4 / 1.5,
+                            right: 10 / 1.5,
+                            left: 10 / 1.5,
                           ),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
@@ -168,6 +168,7 @@ class _SidebarLineWidgetState extends State<SidebarLineWidget> {
                                 : "new",
                             style: const TextStyle(
                               color: Colors.white,
+                              fontSize: 14 / 1.5,
                             ),
                           ),
                         )
@@ -178,7 +179,7 @@ class _SidebarLineWidgetState extends State<SidebarLineWidget> {
                           color: widget.isTapped ? Colors.white : Colors.black,
                         )
                       : SizedBox(),
-                  SizedBox(width: 12),
+                  SizedBox(width: 12 / 1.5),
                 ],
               ),
             ),

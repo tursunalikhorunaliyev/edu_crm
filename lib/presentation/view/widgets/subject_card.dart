@@ -19,13 +19,13 @@ class SubjectCard extends StatelessWidget {
       width: width,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(5),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.3),
+            color: Colors.grey.withOpacity(0.1),
             spreadRadius: 1,
             blurRadius: 2,
-            offset: const Offset(3, 6), // changes position of shadow
+            offset: const Offset(1, 3), // changes position of shadow
           ),
         ],
       ),
@@ -42,32 +42,32 @@ class SubjectCard extends StatelessWidget {
                   style: const TextStyle(
                     fontFamily: "Inter",
                     fontWeight: FontWeight.w500,
-                    fontSize: 20,
+                    fontSize: 20/1.2,
                     color: Color(0xFF40444D),
                   ),
                 ),
                 Image.asset(
                   "images/menu.png",
-                  width: 20,
-                  height: 20,
+                  width: 20 / 1.2,
+                  height: 20 / 1.2,
                 ),
               ],
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 26),
+              padding: const EdgeInsets.symmetric(vertical: 26 / 1.2),
               child: Text(
                 longText,
                 style: const TextStyle(
                   fontFamily: "Inter",
                   fontWeight: FontWeight.w400,
-                  fontSize: 16,
+                  fontSize: 16 / 1.2,
                   color: Color(0xFF40444D),
                 ),
               ),
             ),
             Container(
-              width: 314,
-              height: 160,
+              width: 314 / 1.2,
+              height: 160 / 1.2,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(6),
                 image: DecorationImage(

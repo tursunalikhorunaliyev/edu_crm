@@ -25,7 +25,7 @@ class SideBarWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(
-                    width: 28,
+                    width: 28 / 1.5,
                     height: 28,
                     child: Image.asset(
                       "images/icon1.png",
@@ -33,46 +33,46 @@ class SideBarWidget extends StatelessWidget {
                       height: 28,
                     ),
                   ),
-                  const SizedBox(width: 5),
+                  const SizedBox(width: 5 / 1.5),
                   Text(
                     "REduse",
                     style: GoogleFonts.roboto(
                         fontWeight: FontWeight.w900,
-                        fontSize: 32,
+                        fontSize: 32 / 1.5,
                         color: const Color(0xFF172D43)),
                   ),
                 ],
               ),
               const SizedBox(
-                height: 51,
+                height: 51 / 1.5,
               ),
               const Padding(
-                padding: EdgeInsets.only(right: 17),
+                padding: EdgeInsets.only(right: 17 / 1.5),
                 child: TextPlusWidget(
                   text: "PAGES",
                   iconPath: "Plus.png",
                 ),
               ),
-              const SizedBox(height: 11),
+              const SizedBox(height: 11 / 1.5),
               const SidebarLineWidget(
                 listi: [],
                 firstIcon: "graph.png",
                 isTapping: false,
                 text: "Dashboard",
-                iconHeight: 24.06,
-                iconWidth: 24.06,
+                iconHeight: 24.06 / 1.5,
+                iconWidth: 24.06 / 1.5,
               ),
-              const SizedBox(height: 11),
+              const SizedBox(height: 11 / 1.5),
               const SidebarLineWidget(
-                iconHeight: 24.06,
-                iconWidth: 24.06,
+                iconHeight: 24.06 / 1.5,
+                iconWidth: 24.06 / 1.5,
                 listi: [],
                 firstIcon: "chart-square.png",
                 text: "Analytics",
                 isNew: true,
                 isTapping: false,
               ),
-              const SizedBox(height: 11),
+              const SizedBox(height: 11 / 1.5),
               GestureDetector(
                 onTap: () {
                   onTap = !onTap;
@@ -82,8 +82,8 @@ class SideBarWidget extends StatelessWidget {
                   bloc: boolCommerceCubit,
                   builder: (context, state) {
                     return SidebarLineWidget(
-                      iconHeight: 24.06,
-                      iconWidth: 24.06,
+                      iconHeight: 24.06 / 1.5,
+                      iconWidth: 24.06 / 1.5,
                       listi: eCommorceTexts,
                       firstIcon: "Iconebox.png",
                       text: "E-commerce",
@@ -94,14 +94,14 @@ class SideBarWidget extends StatelessWidget {
                 ),
               ),
               const Padding(
-                padding: EdgeInsets.only(right: 17, top: 50),
+                padding: EdgeInsets.only(right: 17 / 1.5, top: 50 / 1.5),
                 child: TextPlusWidget(
                   text: "APPS",
                   iconPath: "Plus.png",
                 ),
               ),
               const SizedBox(
-                height: 12,
+                height: 12 / 1.5,
               ),
               GestureDetector(
                 onTap: () {
@@ -112,8 +112,8 @@ class SideBarWidget extends StatelessWidget {
                   bloc: boolFanCubit,
                   builder: (context, state) {
                     return SidebarLineWidget(
-                      iconHeight: 24.06,
-                      iconWidth: 24.06,
+                      iconHeight: 24.06 / 1.5,
+                      iconWidth: 24.06 / 1.5,
                       firstIcon: "empty-wallet.png",
                       text: "Fan va yo'nalishlar",
                       isTapping: true,
@@ -123,10 +123,10 @@ class SideBarWidget extends StatelessWidget {
                   },
                 ),
               ),
-              const SizedBox(height: 11),
+              const SizedBox(height: 11 / 1.5),
               const SidebarLineWidget(
-                iconHeight: 24.06,
-                iconWidth: 24.06,
+                iconHeight: 24.06 / 1.5,
+                iconWidth: 24.06 / 1.5,
                 listi: [],
                 firstIcon: "messages-2.png",
                 text: "Yo'nalishlar",
@@ -134,38 +134,38 @@ class SideBarWidget extends StatelessWidget {
                 notiCount: 16,
                 isNotification: true,
               ),
-              const SizedBox(height: 11),
+              const SizedBox(height: 11 / 1.5),
               const SidebarLineWidget(
-                iconHeight: 24.06,
-                iconWidth: 24.06,
+                iconHeight: 24.06 / 1.5,
+                iconWidth: 24.06 / 1.5,
                 listi: [],
                 firstIcon: "calendar.png",
                 text: "Calendar",
                 isTapping: false,
               ),
-              const SizedBox(height: 11),
+              const SizedBox(height: 11 / 1.5),
               const SidebarLineWidget(
-                iconHeight: 24.06,
-                iconWidth: 24.06,
+                iconHeight: 24.06 / 1.5,
+                iconWidth: 24.06 / 1.5,
                 listi: [],
                 firstIcon: "Notes.png",
                 text: "Tasks",
                 isTapping: false,
               ),
               const SizedBox(
-                height: 50,
+                height: 50 / 1.5,
               ),
               const Text(
                 "SETTINGS",
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 16 / 1.5,
                   color: Color(0xFF7B8190),
                 ),
               ),
-              const SizedBox(height: 11),
+              const SizedBox(height: 11 / 1.5),
               const SidebarLineWidget(
-                iconHeight: 24.06,
-                iconWidth: 24.06,
+                iconHeight: 24.06 / 1.5,
+                iconWidth: 24.06 / 1.5,
                 listi: [],
                 firstIcon: "setting-2.png",
                 text: "My Profile",

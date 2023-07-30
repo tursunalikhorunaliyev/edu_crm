@@ -14,7 +14,7 @@ class CustomSideBarLineWidget extends StatelessWidget {
       style: GoogleFonts.inter(
         color: Colors.white,
         fontWeight: FontWeight.w500,
-        fontSize: 18,
+        fontSize: 18 / 1.5,
         decoration: isSelected ? TextDecoration.underline : TextDecoration.none,
       ),
     );

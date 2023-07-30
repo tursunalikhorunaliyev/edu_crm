@@ -15,7 +15,7 @@ class DashBoard extends StatelessWidget {
       body: Row(
         children: [
           SizedBox(
-            width: 300,
+            width: 260,
             height: double.infinity,
             child: SideBarWidget(),
           ),
@@ -25,19 +25,20 @@ class DashBoard extends StatelessWidget {
               children: [
                 Container(
                   color: Colors.white,
-                  height: 70,
+                  height: 100 / 1.5,
                   child: const TopBar(),
                 ),
                 const SizedBox(
-                  height: 30,
+                  height: 30 / 1.5,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(right: 39.0, left: 30),
+                  padding:
+                      const EdgeInsets.only(right: 39.0 / 1.5, left: 30 / 1.5),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       const SizedBox(
-                        height: 25,
+                        height: 25 / 1.5,
                         child: PathWidget(
                           elements: ["salom", "alik", "sapasalom"],
                         ),
@@ -50,34 +51,34 @@ class DashBoard extends StatelessWidget {
                             "Fan va yo'nalishlar",
                             style: GoogleFonts.inter(
                               color: const Color(0xFF1E293B),
-                              fontSize: 24,
+                              fontSize: 24 / 1.5,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                           Container(
                             alignment: Alignment.center,
-                            width: 230,
+                            width: 230 / 1.5,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(9),
                               color: const Color(0xFF5D5FEF),
                             ),
                             child: Padding(
                               padding: const EdgeInsets.symmetric(
-                                vertical: 16,
+                                vertical: 16 / 1.5,
                               ),
                               child: Row(
                                 children: [
                                   const SizedBox(width: 6.5),
                                   Image.asset(
                                     "images/add.png",
-                                    width: 24,
-                                    height: 24,
+                                    width: 24 / 1.5,
+                                    height: 24 / 1.5,
                                   ),
                                   Text(
                                     " Yangi yonalish qo'shish",
                                     style: GoogleFonts.inter(
                                       color: Colors.white,
-                                      fontSize: 15.07,
+                                      fontSize: 15.07 / 1.4,
                                       fontWeight: FontWeight.normal,
                                     ),
                                   ),
@@ -91,6 +92,17 @@ class DashBoard extends StatelessWidget {
                         height: 30,
                       ),
                       EduSelectablepart(
+                        tappedbuttonTextStyle: const TextStyle(
+                          fontFamily: "Inter",
+                          fontSize: 12,
+                          color: Color(0xFF4D515A),
+                        ),
+                        height: 20,
+                        textStyle: const TextStyle(
+                          fontFamily: "Inter",
+                          fontSize: 12,
+                          color: Color(0xFF4D515A),
+                        ),
                         onChanged: (index) {
                           print(index);
                         },
@@ -105,30 +117,36 @@ class DashBoard extends StatelessWidget {
                       const SizedBox(
                         height: 10,
                       ),
-                      SizedBox(
-                        width: double.infinity,
-                        height: MediaQuery.of(context).size.height - 261,
-                        child: GridView.builder(
-                          itemCount: 20,
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 4,
-                            childAspectRatio: 0.7,
-                            crossAxisSpacing: 43,
-                            mainAxisSpacing: 24,
+                      const Row(
+                        children: [
+                          SubjectCard(
+                            width: 300 / 1.2,
+                            text: "Salom",
+                            longText:
+                                "osmaomsaomsoams,ossaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoams",
+                            imageUrl:
+                                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNEpumaLHG_9MBK4kqBtB5OPyQX7hLnuaKZQ&usqp=CAU",
                           ),
-                          itemBuilder: (context, index) {
-                            return SubjectCard(
-                              width: 200,
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            child: SubjectCard(
+                              width: 300 / 1.2,
                               text: "Salom",
-                              longText: index == 0
-                                  ? "osmaomsaomsoams,ossaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoams"
-                                  : "salom",
+                              longText:
+                                  "osmaomsaomsoams,ossaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoams",
                               imageUrl:
                                   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNEpumaLHG_9MBK4kqBtB5OPyQX7hLnuaKZQ&usqp=CAU",
-                            );
-                          },
-                        ),
+                            ),
+                          ),
+                          SubjectCard(
+                            width: 300 / 1.2,
+                            text: "Salom",
+                            longText:
+                                "osmaomsaomsoams,ossaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoams",
+                            imageUrl:
+                                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNEpumaLHG_9MBK4kqBtB5OPyQX7hLnuaKZQ&usqp=CAU",
+                          ),
+                        ],
                       )
                     ],
                   ),
