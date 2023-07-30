@@ -77,10 +77,10 @@ packages:
     dependency: "direct main"
     description:
       name: edu_selectable_part
-      sha256: dc349d7ec636c572da939d2c5b14fa28d5edcf30188aee08216e0e8a8d8d0c77
+      sha256: a187170abd46045829820cdf3b182f43831dd9bfa9a77c6da2bb9a345b100a9e
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.7"
+    version: "0.1.1"
   fake_async:
     dependency: transitive
     description:
