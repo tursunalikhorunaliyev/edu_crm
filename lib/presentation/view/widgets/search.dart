@@ -6,6 +6,7 @@ class Search extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textEditingController = TextEditingController();
     return Container(
       width: 372 / 1.5,
       height: 48 / 1.5,
@@ -25,11 +26,14 @@ class Search extends StatelessWidget {
           const SizedBox(width: 6),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 5),
+              padding: const EdgeInsets.only(bottom: 7),
               child: TextField(
+                controller: TextEditingController(),
+                style: const TextStyle(fontSize: 13),
                 decoration: InputDecoration(
                   hintText: "Search...",
                   hintStyle: GoogleFonts.inter(
+                    fontSize: 13,
                     color: const Color(0xFFCACEDC),
                   ),
                   border:
