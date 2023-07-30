@@ -41,7 +41,7 @@ class ButtonWidget extends StatelessWidget {
         right: buttonWithRightIcon ? horizontalPadding - 4 : horizontalPadding,
       ),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(9),
+        borderRadius: BorderRadius.circular(5),
         color: isDisabled
             ? const Color(0xFFE2E8F0)
             : isBorder
