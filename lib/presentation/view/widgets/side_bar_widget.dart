@@ -1,4 +1,6 @@
 import 'package:edu_crm/presentation/controller/cubits/cubit/on_tap_cubit.dart';
+import 'package:edu_crm/presentation/view/widgets/side_bar_animated_button.dart';
+import 'package:edu_crm/presentation/view/widgets/side_bar_button.dart';
 import 'package:edu_crm/presentation/view/widgets/side_bar_line_widget.dart';
 import 'package:edu_crm/presentation/view/widgets/text_plus_widget.dart';
 import 'package:edu_crm/utils/app_const.dart';
@@ -12,12 +14,11 @@ class SideBarWidget extends StatelessWidget {
   final boolFanCubit = OnTapCubit();
   @override
   Widget build(BuildContext context) {
-    bool onTap = false;
     return ColoredBox(
       color: Colors.white,
       child: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -54,44 +55,25 @@ class SideBarWidget extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 11 / 1.5),
-              const SidebarLineWidget(
-                listi: [],
-                firstIcon: "graph.png",
-                isTapping: false,
+              const SideBarButton(
+                firstIcon: "images/graph.png",
                 text: "Dashboard",
                 iconHeight: 24.06 / 1.5,
                 iconWidth: 24.06 / 1.5,
               ),
               const SizedBox(height: 11 / 1.5),
-              const SidebarLineWidget(
+              const SideBarButton(
+                firstIcon: "images/chart-square.png",
+                text: "Analitika",
                 iconHeight: 24.06 / 1.5,
                 iconWidth: 24.06 / 1.5,
-                listi: [],
-                firstIcon: "chart-square.png",
-                text: "Analytics",
                 isNew: true,
-                isTapping: false,
               ),
               const SizedBox(height: 11 / 1.5),
-              GestureDetector(
-                onTap: () {
-                  onTap = !onTap;
-                  boolCommerceCubit.tap(onTap);
-                },
-                child: BlocBuilder<OnTapCubit, OnTapState>(
-                  bloc: boolCommerceCubit,
-                  builder: (context, state) {
-                    return SidebarLineWidget(
-                      iconHeight: 24.06 / 1.5,
-                      iconWidth: 24.06 / 1.5,
-                      listi: eCommorceTexts,
-                      firstIcon: "Iconebox.png",
-                      text: "E-commerce",
-                      isTapping: true,
-                      isTapped: state.onTap,
-                    );
-                  },
-                ),
+              const SideBarAnimetedButton(
+                text: "Ichki tizim",
+                icon: "assets/images/Iconebox.png",
+                animatedList: ["Salom", "Alik", "Nima"],
               ),
               const Padding(
                 padding: EdgeInsets.only(right: 17 / 1.5, top: 50 / 1.5),
@@ -103,54 +85,34 @@ class SideBarWidget extends StatelessWidget {
               const SizedBox(
                 height: 12 / 1.5,
               ),
-              GestureDetector(
-                onTap: () {
-                  onTap = !onTap;
-                  boolFanCubit.tap(onTap);
-                },
-                child: BlocBuilder<OnTapCubit, OnTapState>(
-                  bloc: boolFanCubit,
-                  builder: (context, state) {
-                    return SidebarLineWidget(
-                      iconHeight: 24.06 / 1.5,
-                      iconWidth: 24.06 / 1.5,
-                      firstIcon: "empty-wallet.png",
-                      text: "Fan va yo'nalishlar",
-                      isTapping: true,
-                      isTapped: state.onTap,
-                      listi: fanVaYonalishlar,
-                    );
-                  },
-                ),
+              const SideBarAnimetedButton(
+                text: "Fan va yo’nalishlar",
+                icon: "assets/images/Iconebox.png",
+                animatedList: ["Salom", "Alik", "Nima"],
               ),
               const SizedBox(height: 11 / 1.5),
-              const SidebarLineWidget(
+              const SideBarButton(
+                firstIcon: "images/chart-square.png",
+                text: "Yo’nalishlar",
                 iconHeight: 24.06 / 1.5,
                 iconWidth: 24.06 / 1.5,
-                listi: [],
-                firstIcon: "messages-2.png",
-                text: "Yo'nalishlar",
-                isTapping: false,
-                notiCount: 16,
                 isNotification: true,
+                notiCount: 16
+                ,
               ),
               const SizedBox(height: 11 / 1.5),
-              const SidebarLineWidget(
+              const SideBarButton(
                 iconHeight: 24.06 / 1.5,
                 iconWidth: 24.06 / 1.5,
-                listi: [],
-                firstIcon: "calendar.png",
+                firstIcon: "images/calendar.png",
                 text: "Calendar",
-                isTapping: false,
               ),
               const SizedBox(height: 11 / 1.5),
-              const SidebarLineWidget(
+              const SideBarButton(
                 iconHeight: 24.06 / 1.5,
                 iconWidth: 24.06 / 1.5,
-                listi: [],
-                firstIcon: "Notes.png",
+                firstIcon: "images/Notes.png",
                 text: "Tasks",
-                isTapping: false,
               ),
               const SizedBox(
                 height: 50 / 1.5,
@@ -163,13 +125,11 @@ class SideBarWidget extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 11 / 1.5),
-              const SidebarLineWidget(
+              const SideBarButton(
                 iconHeight: 24.06 / 1.5,
                 iconWidth: 24.06 / 1.5,
-                listi: [],
-                firstIcon: "setting-2.png",
+                firstIcon: "images/setting-2.png",
                 text: "My Profile",
-                isTapping: false,
               ),
             ],
           ),
