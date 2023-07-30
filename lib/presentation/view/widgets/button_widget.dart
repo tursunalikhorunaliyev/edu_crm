@@ -58,8 +58,8 @@ class ButtonWidget extends StatelessWidget {
       child: onlyIcon
           ? Image.asset(
               "images/add.png",
-              width: 24,
-              height: 24,
+              width: 20,
+              height: 20,
               color: isDisabled
                   ? const Color(0xFFE2E8F0)
                   : isBorder
@@ -73,8 +73,8 @@ class ButtonWidget extends StatelessWidget {
                 buttonWithLeftIcon
                     ? Image.asset(
                         "images/add.png",
-                        width: 24,
-                        height: 24,
+                        width: 20,
+                        height: 20,
                         color: isDisabled
                             ? const Color(0xFFB4BFCD)
                             : isBorder
@@ -96,8 +96,8 @@ class ButtonWidget extends StatelessWidget {
                 buttonWithRightIcon
                     ? Image.asset(
                         "images/add.png",
-                        width: 24,
-                        height: 24,
+                        width: 20,
+                        height: 20,
                         color: isDisabled
                             ? const Color(0xFFB4BFCD)
                             : isBorder

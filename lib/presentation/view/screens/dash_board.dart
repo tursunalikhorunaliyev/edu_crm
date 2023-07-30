@@ -59,7 +59,7 @@ class DashBoard extends StatelessWidget {
                           ),
                           const ButtonWidget(
                             verticalPadding: 12 / 1.5,
-                            horizontalPadding: 5,
+                            horizontalPadding: 8,
                             buttonWithLeftIcon: true,
                             containerColor: Color(0xFF5D5FEF),
                             text: "Yangi yonalish qo'shish",

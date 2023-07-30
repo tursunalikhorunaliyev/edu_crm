@@ -1,3 +1,4 @@
+import 'package:edu_crm/utils/app_const.dart';
 import 'package:flutter/material.dart';
 
 class SubjectCard extends StatelessWidget {
@@ -41,8 +42,8 @@ class SubjectCard extends StatelessWidget {
                   text,
                   style: const TextStyle(
                     fontFamily: "Inter",
-                    fontWeight: FontWeight.w500,
-                    fontSize: 20/1.2,
+                    fontWeight: semiBold,
+                    fontSize: 16,
                     color: Color(0xFF40444D),
                   ),
                 ),

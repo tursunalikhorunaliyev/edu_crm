@@ -9,7 +9,7 @@ class TopBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 38, left: 30),
+      padding: const EdgeInsets.only(right: 19, left: 30),
       child: Row(
         children: [
           const Search(),
@@ -51,7 +51,7 @@ class TopBar extends StatelessWidget {
           ),
           EduDropDown(
             elements: eduDropDownModelList,
-            width: 170,
+            width: 200,
             contentGap: 24,
           )
         ],
