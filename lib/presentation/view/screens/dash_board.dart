@@ -1,3 +1,4 @@
+import 'package:edu_crm/presentation/view/widgets/button_widget.dart';
 import 'package:edu_crm/presentation/view/widgets/path_widget.dart';
 import 'package:edu_crm/presentation/view/widgets/side_bar_widget.dart';
 import 'package:edu_crm/presentation/view/widgets/top_bar.dart';
@@ -56,37 +57,13 @@ class DashBoard extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          Container(
-                            alignment: Alignment.center,
-                            width: 230 / 1.5,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(9),
-                              color: const Color(0xFF5D5FEF),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                vertical: 16 / 1.5,
-                              ),
-                              child: Row(
-                                children: [
-                                  const SizedBox(width: 6.5),
-                                  Image.asset(
-                                    "images/add.png",
-                                    width: 24 / 1.5,
-                                    height: 24 / 1.5,
-                                  ),
-                                  Text(
-                                    " Yangi yonalish qo'shish",
-                                    style: GoogleFonts.inter(
-                                      color: Colors.white,
-                                      fontSize: 15.07 / 1.4,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
+                          const ButtonWidget(
+                            verticalPadding: 16 / 1.5,
+                            horizontalPadding: 5,
+                            buttonWithLeftIcon: true,
+                            containerColor: Color(0xFF5D5FEF),
+                            text: "Yangi yonalish qo'shish",
+                          )
                         ],
                       ),
                       const SizedBox(
@@ -118,7 +95,7 @@ class DashBoard extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(
-                        height: 10,
+                        height: 30,
                       ),
                       const Row(
                         children: [
