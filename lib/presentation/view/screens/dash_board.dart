@@ -94,13 +94,13 @@ class DashBoard extends StatelessWidget {
                       EduSelectablepart(
                         tappedbuttonTextStyle: const TextStyle(
                           fontFamily: "Inter",
-                          fontSize: 12,
-                          color: Color(0xFF4D515A),
+                          fontSize: 14,
+                          color: Color(0xFF5D5FEF),
                         ),
                         height: 20,
                         textStyle: const TextStyle(
                           fontFamily: "Inter",
-                          fontSize: 12,
+                          fontSize: 14,
                           color: Color(0xFF4D515A),
                         ),
                         onChanged: (index) {
