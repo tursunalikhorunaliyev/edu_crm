@@ -58,7 +58,7 @@ class DashBoard extends StatelessWidget {
                             ),
                           ),
                           const ButtonWidget(
-                            verticalPadding: 10 / 1.5,
+                            verticalPadding: 12 / 1.5,
                             horizontalPadding: 5,
                             buttonWithLeftIcon: true,
                             containerColor: Color(0xFF5D5FEF),
