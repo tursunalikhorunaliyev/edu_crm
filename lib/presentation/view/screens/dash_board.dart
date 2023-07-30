@@ -1,6 +1,7 @@
 import 'package:edu_crm/presentation/view/widgets/path_widget.dart';
 import 'package:edu_crm/presentation/view/widgets/side_bar_widget.dart';
 import 'package:edu_crm/presentation/view/widgets/top_bar.dart';
+import 'package:edu_crm/utils/app_const.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:edu_selectable_part/edu_selectable_part.dart';
@@ -96,12 +97,14 @@ class DashBoard extends StatelessWidget {
                           fontFamily: "Inter",
                           fontSize: 14,
                           color: Color(0xFF5D5FEF),
+                          fontWeight: medium,
                         ),
                         height: 20,
                         textStyle: const TextStyle(
                           fontFamily: "Inter",
                           fontSize: 14,
                           color: Color(0xFF4D515A),
+                          fontWeight: medium,
                         ),
                         onChanged: (index) {
                           print(index);
