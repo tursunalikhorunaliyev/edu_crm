@@ -1,6 +1,5 @@
 import 'package:edu_drop_down/controller/model/edu_drop_down_model.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 List<String> eCommorceTexts = [
   "Orders",

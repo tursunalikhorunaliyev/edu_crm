@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class ButtonWidget extends StatelessWidget {
   final bool buttonWithLeftIcon;
@@ -83,7 +82,8 @@ class ButtonWidget extends StatelessWidget {
                     : const SizedBox(),
                 Text(
                   text,
-                  style: GoogleFonts.inter(
+                  style: TextStyle(
+                    fontFamily: "Inter",
                     color: isDisabled
                         ? const Color(0xFFB4BFCD)
                         : isBorder
