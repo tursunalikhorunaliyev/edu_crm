@@ -40,7 +40,8 @@ class CustomBadge extends StatelessWidget {
             hasIcon ? const SizedBox(width: 10) : const SizedBox(),
             Text(
               text,
-              style: GoogleFonts.inter(
+              style: TextStyle(
+                fontFamily: "Inter",
                 color: textColor,
                 fontSize: textSize,
                 fontWeight: FontWeight.normal,

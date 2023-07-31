@@ -47,10 +47,13 @@ class SubjectCard extends StatelessWidget {
                     color: Color(0xFF40444D),
                   ),
                 ),
-                Image.asset(
-                  "images/menu.png",
-                  width: 20 / 1.2,
-                  height: 20 / 1.2,
+                MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: Image.asset(
+                    "images/menu.png",
+                    width: 20 / 1.2,
+                    height: 20 / 1.2,
+                  ),
                 ),
               ],
             ),

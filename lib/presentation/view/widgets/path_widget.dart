@@ -22,7 +22,8 @@ class PathWidget extends StatelessWidget {
                   ),
             Text(
               elements[index],
-              style: GoogleFonts.inter(
+              style: TextStyle(
+                fontFamily: "Inter",
                 fontWeight: index == elements.length - 1
                     ? FontWeight.bold
                     : FontWeight.normal,

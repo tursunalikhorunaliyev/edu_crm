@@ -1,43 +1,60 @@
 import 'package:edu_crm/utils/app_const.dart';
 import 'package:flutter/material.dart';
 
-class SideBarAnimetedButton extends StatefulWidget {
-  final List<String> animatedList;
+class SideBarAnimatedButton extends StatefulWidget {
+  final List<String> elements;
   final String icon;
   final String text;
-  const SideBarAnimetedButton({
+  final double contentHeight;
+  final Function(int index)? onChange;
+  const SideBarAnimatedButton({
     super.key,
-    required this.animatedList,
+    required this.elements,
     required this.icon,
     required this.text,
+    required this.contentHeight,
+    this.onChange,
   });
 
   @override
-  State<SideBarAnimetedButton> createState() => _SideBarAnimetedButtonState();
+  State<SideBarAnimatedButton> createState() => _SideBarAnimatedButtonState();
 }
 
-class _SideBarAnimetedButtonState extends State<SideBarAnimetedButton> {
-  bool isTap = false;
-  int onSelectedIndex = 0;
+class _SideBarAnimatedButtonState extends State<SideBarAnimatedButton> {
+  int onChange(int index) {
+    return index;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    onChange(selectedIndex) {
+      widget.onChange;
+    }
+  }
+
+  bool isSelected = false;
+  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      height: isTap ? 147 : (48 / 1.5),
+      height: isSelected ? widget.contentHeight : (70 / 1.5),
       width: double.infinity,
       duration: const Duration(milliseconds: 400),
-      curve: Curves.fastLinearToSlowEaseIn,
+      curve: Curves.bounceOut,
       padding: const EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
-        color: isTap ? const Color(0xFF5D5FEF) : Colors.white,
+        color: isSelected ? const Color(0xFF5D5FEF) : Colors.white,
         borderRadius: BorderRadius.circular(9),
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10 / 1.5),
+            padding: const EdgeInsets.symmetric(vertical: 20 / 1.5),
             child: InkWell(
               onTap: () {
-                isTap = !isTap;
+                isSelected = !isSelected;
                 setState(() {});
               },
               child: Row(
@@ -46,20 +63,21 @@ class _SideBarAnimetedButtonState extends State<SideBarAnimetedButton> {
                     widget.icon,
                     width: 24 / 1.5,
                     height: 24 / 1.5,
-                    color: isTap ? Colors.white : const Color(0xFF3B424A),
+                    color: isSelected ? Colors.white : const Color(0xFF3B424A),
                   ),
                   const SizedBox(width: 10),
                   Text(
                     widget.text,
                     style: TextStyle(
-                      color: isTap ? Colors.white : const Color(0xFF3B424A),
+                      color:
+                          isSelected ? Colors.white : const Color(0xFF3B424A),
                       fontFamily: "Inter",
                       fontWeight: medium,
                       fontSize: 15,
                     ),
                   ),
                   const Spacer(),
-                  isTap
+                  isSelected
                       ? Image.asset(
                           "assets/images/Chevron_Down_White.png",
                           width: 24 / 1.5,
@@ -75,74 +93,73 @@ class _SideBarAnimetedButtonState extends State<SideBarAnimetedButton> {
               ),
             ),
           ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: widget.animatedList.length,
-              itemBuilder: (context, index) {
-                Size size = (TextPainter(
-                        text: TextSpan(
-                          text: widget.animatedList[index],
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontFamily: "Inter",
-                            fontWeight: medium,
-                            fontSize: 15,
+          isSelected
+              ? SingleChildScrollView(
+                  physics: const NeverScrollableScrollPhysics(),
+                  child: Column(
+                    children: List.generate(widget.elements.length, (index) {
+                      Size size = (TextPainter(
+                              text: TextSpan(
+                                text: widget.elements[index],
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: "Inter",
+                                  fontWeight: medium,
+                                  fontSize: 15,
+                                ),
+                              ),
+                              maxLines: 1,
+                              textScaleFactor:
+                                  MediaQuery.of(context).textScaleFactor,
+                              textDirection: TextDirection.ltr)
+                            ..layout())
+                          .size;
+                      return MouseRegion(
+                        cursor: SystemMouseCursors.click,
+                        child: GestureDetector(
+                          onTap: () {
+                            selectedIndex = index;
+                            setState(() {});
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.only(bottom: 12),
+                            child: selectedIndex == index
+                                ? Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        widget.elements[index],
+                                        style: const TextStyle(
+                                          color: Colors.white,
+                                          fontFamily: "Inter",
+                                          fontWeight: medium,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      Container(
+                                        height: 1,
+                                        width: size.width,
+                                        color: Colors.white,
+                                      ),
+                                    ],
+                                  )
+                                : Text(
+                                    widget.elements[index],
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontFamily: "Inter",
+                                      fontWeight: medium,
+                                      fontSize: 15,
+                                    ),
+                                  ),
                           ),
                         ),
-                        maxLines: 1,
-                        textScaleFactor: MediaQuery.of(context).textScaleFactor,
-                        textDirection: TextDirection.ltr)
-                      ..layout())
-                    .size;
-                return MouseRegion(
-                  cursor: SystemMouseCursors.click,
-                  child: GestureDetector(
-                    onTap: () {
-                      onSelectedIndex = index;
-                      setState(() {});
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.only(bottom: 12),
-                      child: Row(
-                        children: [
-                          const SizedBox(width: 24 / 1.5 + 12),
-                          onSelectedIndex == index
-                              ? Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      widget.animatedList[index],
-                                      style: const TextStyle(
-                                        color: Colors.white,
-                                        fontFamily: "Inter",
-                                        fontWeight: medium,
-                                        fontSize: 15,
-                                      ),
-                                    ),
-                                    Container(
-                                      height: 1,
-                                      width: size.width,
-                                      color: Colors.white,
-                                    ),
-                                  ],
-                                )
-                              : Text(
-                                  widget.animatedList[index],
-                                  style: const TextStyle(
-                                    color: Colors.white,
-                                    fontFamily: "Inter",
-                                    fontWeight: medium,
-                                    fontSize: 15,
-                                  ),
-                                ),
-                        ],
-                      ),
-                    ),
+                      );
+                    }),
                   ),
-                );
-              },
-            ),
-          ),
+                )
+              : const SizedBox(),
         ],
       ),
     );

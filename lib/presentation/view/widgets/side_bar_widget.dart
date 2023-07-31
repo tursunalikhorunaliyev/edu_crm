@@ -1,17 +1,11 @@
-import 'package:edu_crm/presentation/controller/cubits/cubit/on_tap_cubit.dart';
 import 'package:edu_crm/presentation/view/widgets/side_bar_animated_button.dart';
 import 'package:edu_crm/presentation/view/widgets/side_bar_button.dart';
-import 'package:edu_crm/presentation/view/widgets/side_bar_line_widget.dart';
 import 'package:edu_crm/presentation/view/widgets/text_plus_widget.dart';
-import 'package:edu_crm/utils/app_const.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SideBarWidget extends StatelessWidget {
-  SideBarWidget({super.key});
-  final boolCommerceCubit = OnTapCubit();
-  final boolFanCubit = OnTapCubit();
+  const SideBarWidget({super.key});
   @override
   Widget build(BuildContext context) {
     return ColoredBox(
@@ -22,6 +16,7 @@ class SideBarWidget extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              //bu shapkasi side barning eng yuqori qismida turadigan widget
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -38,85 +33,84 @@ class SideBarWidget extends StatelessWidget {
                   Text(
                     "REduse",
                     style: GoogleFonts.roboto(
-                        fontWeight: FontWeight.w900,
-                        fontSize: 32 / 1.5,
-                        color: const Color(0xFF172D43)),
+                      fontWeight: FontWeight.w900,
+                      fontSize: 32 / 1.5,
+                      color: const Color(0xFF172D43),
+                    ),
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 51 / 1.5,
-              ),
-              const Padding(
-                padding: EdgeInsets.only(right: 17 / 1.5),
-                child: TextPlusWidget(
-                  text: "PAGES",
-                  iconPath: "Plus.png",
-                ),
+              const SizedBox(height: 51 / 1.5),
+              const TextPlusIcon(
+                text: "PAGES",
+                iconPath: "Plus.png",
               ),
               const SizedBox(height: 11 / 1.5),
               const SideBarButton(
-                firstIcon: "images/graph.png",
+                prefixIconName: "images/graph.png",
                 text: "Dashboard",
                 iconHeight: 24.06 / 1.5,
                 iconWidth: 24.06 / 1.5,
               ),
               const SizedBox(height: 11 / 1.5),
               const SideBarButton(
-                firstIcon: "images/chart-square.png",
+                prefixIconName: "images/chart-square.png",
                 text: "Analitika",
                 iconHeight: 24.06 / 1.5,
                 iconWidth: 24.06 / 1.5,
                 isNew: true,
               ),
               const SizedBox(height: 11 / 1.5),
-              const SideBarAnimetedButton(
+              SideBarAnimatedButton(
                 text: "Ichki tizim",
                 icon: "assets/images/Iconebox.png",
-                animatedList: ["Salom", "Alik", "Nima"],
+                elements: const ["Salom", "Alik", "Nima", "Salom", "Xayr"],
+                contentHeight: 200,
+                onChange: (index) {
+                  print(index);
+                },
               ),
               const Padding(
                 padding: EdgeInsets.only(right: 17 / 1.5, top: 50 / 1.5),
-                child: TextPlusWidget(
+                child: TextPlusIcon(
                   text: "APPS",
                   iconPath: "Plus.png",
                 ),
               ),
-              const SizedBox(
-                height: 12 / 1.5,
-              ),
-              const SideBarAnimetedButton(
+              const SizedBox(height: 12 / 1.5),
+              SideBarAnimatedButton(
                 text: "Fan va yo’nalishlar",
                 icon: "assets/images/Iconebox.png",
-                animatedList: ["Salom", "Alik", "Nima"],
+                elements: const ["Salom", "Alik", "Nima"],
+                contentHeight: 150,
+                onChange: (index) {
+                  print(index);
+                },
               ),
               const SizedBox(height: 11 / 1.5),
               const SideBarButton(
-                firstIcon: "images/chart-square.png",
+                prefixIconName: "images/chart-square.png",
                 text: "Yo’nalishlar",
                 iconHeight: 24.06 / 1.5,
                 iconWidth: 24.06 / 1.5,
                 isNotification: true,
-                notiCount: 16
-                ,
+                notificationCount: 16,
               ),
               const SizedBox(height: 11 / 1.5),
               const SideBarButton(
                 iconHeight: 24.06 / 1.5,
                 iconWidth: 24.06 / 1.5,
-                firstIcon: "images/calendar.png",
+                prefixIconName: "images/calendar.png",
                 text: "Calendar",
               ),
               const SizedBox(height: 11 / 1.5),
               const SideBarButton(
                 iconHeight: 24.06 / 1.5,
                 iconWidth: 24.06 / 1.5,
-                firstIcon: "images/Notes.png",
+                prefixIconName: "images/Notes.png",
                 text: "Tasks",
               ),
-              const SizedBox(
-                height: 50 / 1.5,
-              ),
+              const SizedBox(height: 50 / 1.5),
               const Text(
                 "SETTINGS",
                 style: TextStyle(
@@ -128,7 +122,7 @@ class SideBarWidget extends StatelessWidget {
               const SideBarButton(
                 iconHeight: 24.06 / 1.5,
                 iconWidth: 24.06 / 1.5,
-                firstIcon: "images/setting-2.png",
+                prefixIconName: "images/setting-2.png",
                 text: "My Profile",
               ),
             ],

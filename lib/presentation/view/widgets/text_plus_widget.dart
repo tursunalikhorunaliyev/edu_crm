@@ -1,9 +1,9 @@
 import 'package:flutter/widgets.dart';
 
-class TextPlusWidget extends StatelessWidget {
+class TextPlusIcon extends StatelessWidget {
   final String text;
   final String iconPath;
-  const TextPlusWidget({super.key, required this.text, required this.iconPath});
+  const TextPlusIcon({super.key, required this.text, required this.iconPath});
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +16,7 @@ class TextPlusWidget extends StatelessWidget {
             color: Color(0xFF7B8190),
             fontSize: 12,
             fontWeight: FontWeight.w500,
+            fontFamily: "Inter",
           ),
         ),
         Image.asset(

@@ -16,7 +16,7 @@ class DashBoard extends StatelessWidget {
     return Scaffold(
       body: Row(
         children: [
-          SizedBox(
+          const SizedBox(
             width: 260,
             height: double.infinity,
             child: SideBarWidget(),
@@ -45,19 +45,20 @@ class DashBoard extends StatelessWidget {
                           elements: ["salom", "alik", "sapasalom"],
                         ),
                       ),
-                      Row(
+                      const Row(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
                             "Fan va yo'nalishlar",
-                            style: GoogleFonts.inter(
-                              color: const Color(0xFF1E293B),
+                            style: TextStyle(
+                              fontFamily: "Inter",
+                              color: Color(0xFF1E293B),
                               fontSize: 24 / 1.5,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          const ButtonWidget(
+                          ButtonWidget(
                             verticalPadding: 12 / 1.5,
                             horizontalPadding: 8,
                             buttonWithLeftIcon: true,

@@ -79,7 +79,8 @@ class _SidebarLineWidgetState extends State<SidebarLineWidget> {
                       ),
                       Text(
                         widget.text,
-                        style: GoogleFonts.inter(
+                        style: TextStyle(
+                          fontFamily: "Inter",
                           color:
                               Color(widget.isTapped ? 0xFFFFFFFF : 0xFF3B424A),
                         ),
@@ -142,7 +143,8 @@ class _SidebarLineWidgetState extends State<SidebarLineWidget> {
                   ),
                   Text(
                     widget.text,
-                    style: GoogleFonts.inter(
+                    style: TextStyle(
+                      fontFamily: "Inter",
                       color: const Color(0xFF3B424A),
                     ),
                   ),
@@ -168,6 +170,7 @@ class _SidebarLineWidgetState extends State<SidebarLineWidget> {
                                 : "new",
                             style: const TextStyle(
                               color: Colors.white,
+                              fontFamily: "Inter",
                               fontSize: 14 / 1.5,
                             ),
                           ),

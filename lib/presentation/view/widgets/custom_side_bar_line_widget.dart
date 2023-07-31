@@ -11,7 +11,8 @@ class CustomSideBarLineWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: GoogleFonts.inter(
+      style: TextStyle(
+        fontFamily: "Inter",
         color: Colors.white,
         fontWeight: FontWeight.w500,
         fontSize: 18 / 1.5,

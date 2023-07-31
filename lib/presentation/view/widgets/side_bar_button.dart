@@ -2,30 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SideBarButton extends StatelessWidget {
-  final String firstIcon;
+  final String prefixIconName;
   final bool isNew;
   final bool isNotification;
-  final int notiCount;
+  final int notificationCount;
   final String text;
   final double iconWidth;
   final double iconHeight;
-  final double rightIconHeigth;
+  final double suffixIconHeight;
   final double borderRadius;
   final double horizontalPadding;
-  final double rightTextSize;
+  final double suffixTextSize;
+
   const SideBarButton({
     super.key,
-    this.rightTextSize = 14 / 1.5,
+    this.suffixTextSize = 14 / 1.5,
     this.horizontalPadding = 10,
     this.borderRadius = 5,
-    this.firstIcon = "",
+    this.prefixIconName = "",
     this.isNew = false,
     this.isNotification = false,
-    this.notiCount = 0,
+    this.notificationCount = 0,
     this.text = "",
     this.iconWidth = 10,
     this.iconHeight = 10,
-    this.rightIconHeigth = 20,
+    this.suffixIconHeight = 20,
   });
 
   @override
@@ -40,12 +41,12 @@ class SideBarButton extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
       child: Row(
         children: [
-          firstIcon == ""
+          prefixIconName == ""
               ? const SizedBox()
               : Image.asset(
-                  "assets/$firstIcon",
-                  width: 24 / 1.5,
-                  height: 24 / 1.5,
+                  "assets/$prefixIconName",
+                  width: iconWidth,
+                  height: iconHeight,
                   color: const Color(0xFF3B424A),
                 ),
           const SizedBox(
@@ -53,15 +54,16 @@ class SideBarButton extends StatelessWidget {
           ),
           Text(
             text,
-            style: GoogleFonts.inter(
-              color: const Color(0xFF3B424A),
+            style: const TextStyle(
+              fontFamily: "Inter",
+              color: Color(0xFF3B424A),
             ),
           ),
           const Spacer(),
           isNew || isNotification
               ? Container(
                   width: 49 / 1.5,
-                  height: 23 / 1.5,
+                  height: suffixIconHeight,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
@@ -70,10 +72,11 @@ class SideBarButton extends StatelessWidget {
                         : const Color(0xFF5D5FEF),
                   ),
                   child: Text(
-                    isNotification ? "+$notiCount" : "new",
+                    isNotification ? "+$notificationCount" : "new",
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: rightTextSize,
+                      fontFamily: "Inter",
+                      fontSize: suffixTextSize,
                     ),
                   ),
                 )

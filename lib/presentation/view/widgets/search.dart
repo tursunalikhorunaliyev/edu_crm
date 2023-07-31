@@ -14,7 +14,7 @@ class _SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 12),
+      padding: const EdgeInsets.symmetric(horizontal: 12),
       width: 372 / 1.5,
       height: 60 / 1.5,
       decoration: BoxDecoration(
@@ -33,15 +33,16 @@ class _SearchState extends State<Search> {
             child: TextField(
               controller: textEditingController,
               style: const TextStyle(fontSize: 13),
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 contentPadding:
-                    const EdgeInsets.symmetric(vertical: 17, horizontal: 8),
+                    EdgeInsets.symmetric(vertical: 17, horizontal: 8),
                 hintText: "Search...",
-                hintStyle: GoogleFonts.inter(
+                hintStyle: TextStyle(
+                  fontFamily: "Inter",
                   fontSize: 14,
-                  color: const Color(0xFFCACEDC),
+                  color: Color(0xFFCACEDC),
                 ),
-                border: const UnderlineInputBorder(borderSide: BorderSide.none),
+                border: UnderlineInputBorder(borderSide: BorderSide.none),
               ),
             ),
           )

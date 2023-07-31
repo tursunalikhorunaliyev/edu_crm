@@ -1,5 +1,6 @@
 import 'package:edu_drop_down/controller/model/edu_drop_down_model.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 List<String> eCommorceTexts = [
   "Orders",
@@ -66,3 +67,9 @@ const FontWeight medium = FontWeight.w500;
 const FontWeight semiBold = FontWeight.w600;
 const FontWeight extraBold = FontWeight.w800;
 const FontWeight black = FontWeight.w900;
+
+const TextStyle sideBarButton = TextStyle(
+  color: Color(0xFF3B424A),
+  fontWeight: medium,
+  fontSize: 16,
+);
