@@ -2,7 +2,6 @@ import 'package:edu_crm/presentation/view/widgets/side_bar_animated_button.dart'
 import 'package:edu_crm/presentation/view/widgets/side_bar_button.dart';
 import 'package:edu_crm/presentation/view/widgets/text_plus_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class SideBarWidget extends StatelessWidget {
   const SideBarWidget({super.key});
@@ -30,9 +29,10 @@ class SideBarWidget extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 5 / 1.5),
-                  Text(
+                  const Text(
                     "REduse",
-                    style: GoogleFonts.roboto(
+                    style: TextStyle(
+                      fontFamily: "Inter",
                       fontWeight: FontWeight.w900,
                       fontSize: 32 / 1.5,
                       color: const Color(0xFF172D43),
