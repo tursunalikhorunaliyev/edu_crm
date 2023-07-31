@@ -1,3 +1,5 @@
+import 'package:edu_crm/presentation/view/parts/sub_subject_part.dart';
+import 'package:edu_crm/presentation/view/screens/dash_board.dart';
 import 'package:edu_crm/presentation/view/widgets/side_bar_animated_button.dart';
 import 'package:flutter/material.dart';
 
@@ -8,26 +10,7 @@ class Test extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "GoogleFonts",
-              style: TextStyle(
-                fontSize: 16,
-                fontFamily: "Inter",
-              ),
-            ),
-            Text(
-              "GoogleFonts",
-              style: TextStyle(
-                fontFamily: "Inter",
-                fontSize: 16,
-              ),
-            )
-          ],
-        ),
+        child: DashBoard(),
       ),
     );
   }

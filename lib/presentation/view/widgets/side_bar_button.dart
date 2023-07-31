@@ -1,3 +1,4 @@
+import 'package:edu_crm/utils/app_const.dart';
 import 'package:flutter/material.dart';
 
 class SideBarButton extends StatelessWidget {
@@ -56,6 +57,7 @@ class SideBarButton extends StatelessWidget {
             style: const TextStyle(
               fontFamily: "Inter",
               color: Color(0xFF3B424A),
+              fontWeight: medium,
             ),
           ),
           const Spacer(),

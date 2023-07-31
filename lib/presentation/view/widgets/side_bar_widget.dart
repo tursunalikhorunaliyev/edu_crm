@@ -64,9 +64,9 @@ class SideBarWidget extends StatelessWidget {
               SideBarAnimatedButton(
                 text: "Ichki tizim",
                 icon: "assets/images/Iconebox.png",
-                elements: const ["Salom", "Alik", "Nima", "Salom", "Xayr"],
-                contentHeight: 200,
-                onChange: (index) {
+                elements: const ["Hodimlar", "O'qituvchilar", "Darsjadvallari"],
+                contentHeight: 134,
+                onChanged: (index) {
                   print(index);
                 },
               ),
@@ -80,10 +80,10 @@ class SideBarWidget extends StatelessWidget {
               const SizedBox(height: 12 / 1.5),
               SideBarAnimatedButton(
                 text: "Fan va yo’nalishlar",
-                icon: "assets/images/Iconebox.png",
-                elements: const ["Salom", "Alik", "Nima"],
-                contentHeight: 150,
-                onChange: (index) {
+                icon: "assets/images/empty-wallet.png",
+                elements: const [],
+                contentHeight: 50,
+                onChanged: (index) {
                   print(index);
                 },
               ),
