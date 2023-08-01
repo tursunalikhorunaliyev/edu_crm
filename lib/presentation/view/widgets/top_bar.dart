@@ -12,7 +12,7 @@ class TopBar extends StatelessWidget {
       padding: const EdgeInsets.only(right: 19, left: 30),
       child: Row(
         children: [
-          const Search(),
+          const Search(hinText: "Search..."),
           const Spacer(),
           Container(
             width: 44 / 1.7,

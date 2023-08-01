@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Search extends StatefulWidget {
-  const Search({super.key});
+  final String hinText;
+  const Search({super.key, required this.hinText});
 
   @override
   State<Search> createState() => _SearchState();
@@ -32,16 +33,16 @@ class _SearchState extends State<Search> {
             child: TextField(
               controller: textEditingController,
               style: const TextStyle(fontSize: 13),
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 contentPadding:
-                    EdgeInsets.symmetric(vertical: 17, horizontal: 8),
-                hintText: "Search...",
-                hintStyle: TextStyle(
+                    const EdgeInsets.symmetric(vertical: 17, horizontal: 8),
+                hintText: widget.hinText,
+                hintStyle: const TextStyle(
                   fontFamily: "Inter",
                   fontSize: 14,
                   color: Color(0xFFCACEDC),
                 ),
-                border: UnderlineInputBorder(borderSide: BorderSide.none),
+                border: const UnderlineInputBorder(borderSide: BorderSide.none),
               ),
             ),
           )
