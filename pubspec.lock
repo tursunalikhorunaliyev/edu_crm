@@ -65,6 +65,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.5"
+  edu_badge_textfield:
+    dependency: "direct main"
+    description:
+      name: edu_badge_textfield
+      sha256: "4de90e8433bef912d9921c9fc6a5df1085c63e1abefbf8d2fa57f038c276f611"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.4"
   edu_button:
     dependency: "direct main"
     description:
@@ -77,10 +85,10 @@ packages:
     dependency: "direct main"
     description:
       name: edu_drop_down
-      sha256: "7df821e1b8dfa94617172113306818127e132966b3dbc0dc58dcdc8d6a361110"
+      sha256: a1ed8db75272c73e0b8f1aeda66597e7677941a25dfe9a475255021dde097e25
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.7"
+    version: "0.0.8"
   edu_selectable_part:
     dependency: "direct main"
     description:

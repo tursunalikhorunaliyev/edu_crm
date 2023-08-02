@@ -53,7 +53,7 @@ class TopBar extends StatelessWidget {
             elements: eduDropDownModelList,
             width: 200,
             contentGap: 24,
-          )
+          ),
         ],
       ),
     );
