@@ -23,10 +23,10 @@ class SubjectCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(5),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
-            spreadRadius: 1,
+            color: const Color(0xFFB4BFCD).withOpacity(0.2),
+            spreadRadius: 0,
             blurRadius: 2,
-            offset: const Offset(1, 3), // changes position of shadow
+            offset: const Offset(2, 3), // changes position of shadow
           ),
         ],
       ),
@@ -70,7 +70,7 @@ class SubjectCard extends StatelessWidget {
               ),
             ),
             Container(
-              width: 314 / 1.2,
+              width: double.infinity,
               height: 160 / 1.2,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(6),

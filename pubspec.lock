@@ -213,10 +213,10 @@ packages:
     dependency: "direct main"
     description:
       name: edu_drop_down
-      sha256: a1ed8db75272c73e0b8f1aeda66597e7677941a25dfe9a475255021dde097e25
+      sha256: cd279988bee0fd7f2512cf6789948c64a8a91dbca10529c2ae81215e617e3974
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.8"
+    version: "0.0.9"
   edu_selectable_part:
     dependency: "direct main"
     description:
@@ -282,10 +282,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_staggered_grid_view
-      sha256: "1312314293acceb65b92754298754801b0e1f26a1845833b740b30415bbbcf07"
+      sha256: "19e7abb550c96fbfeb546b23f3ff356ee7c59a019a651f8f102a4ba9b7349395"
       url: "https://pub.dev"
     source: hosted
-    version: "0.6.2"
+    version: "0.7.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -730,4 +730,4 @@ packages:
     version: "3.1.2"
 sdks:
   dart: ">=3.0.6 <4.0.0"
-  flutter: ">=3.3.0"
+  flutter: ">=3.7.0"

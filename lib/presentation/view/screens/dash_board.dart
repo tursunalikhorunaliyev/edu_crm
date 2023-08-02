@@ -1,3 +1,4 @@
+import 'package:edu_crm/presentation/view/parts/new_face_part.dart';
 import 'package:edu_crm/presentation/view/parts/physical_stuff_part.dart';
 import 'package:edu_crm/presentation/view/parts/sub_subject_part.dart';
 import 'package:edu_crm/presentation/view/widgets/side_bar_widget.dart';
@@ -26,8 +27,8 @@ class DashBoard extends StatelessWidget {
                     width: double.infinity,
                     color: Colors.white,
                     child: const TopBar()),
-                const Expanded(
-                  child: PhysicalStuffPart(),
+                Expanded(
+                  child: SubSubjectPart(),
                 ),
               ],
             ),
