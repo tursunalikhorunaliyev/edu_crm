@@ -13,7 +13,7 @@ class _ApiService implements ApiService {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://5229-84-54-92-202.ngrok-free.app/api';
+    baseUrl ??= 'https://4f29-185-139-137-71.ngrok-free.app/api';
   }
 
   final Dio _dio;
@@ -333,6 +333,32 @@ class _ApiService implements ApiService {
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = PhysicalFaceModel.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<List<OrganizationSubjectModel>> getOrganizationSubject() async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch<List<dynamic>>(
+        _setStreamType<List<OrganizationSubjectModel>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/org/ss/org-subjects',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    var value = _result.data!
+        .map((dynamic i) =>
+            OrganizationSubjectModel.fromJson(i as Map<String, dynamic>))
+        .toList();
     return value;
   }
 

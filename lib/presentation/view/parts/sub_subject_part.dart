@@ -1,15 +1,35 @@
+import 'dart:math';
+
 import 'package:edu_button/edu_button.dart';
+import 'package:edu_crm/presentation/controller/blocs/org_subjects_bloc.dart';
 import 'package:edu_crm/presentation/view/widgets/subject_card.dart';
 import 'package:edu_crm/utils/app_const.dart';
 import 'package:edu_selectable_part/edu_selectable_part.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-class SubSubjectPart extends StatelessWidget {
-  SubSubjectPart({super.key});
+class SubSubjectPart extends StatefulWidget {
+  const SubSubjectPart({super.key});
+
+  @override
+  State<SubSubjectPart> createState() => _SubSubjectPartState();
+}
+
+class _SubSubjectPartState extends State<SubSubjectPart> {
+  final orgSubjectBloc = OrgSubjectsBloc();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    orgSubjectBloc.add(OrgSubjectAllDataEvent());
+  }
 
   @override
   Widget build(BuildContext context) {
+    List<String > tabElements = ["Barchasi"];
     return Scaffold(
         body: Column(
       crossAxisAlignment: CrossAxisAlignment.end,
@@ -40,30 +60,36 @@ class SubSubjectPart extends StatelessWidget {
         const SizedBox(
           height: 30,
         ),
-        EduSelectablePart(
-            tappedButtonTextStyle: const TextStyle(
-              fontFamily: "Inter",
-              fontSize: 14,
-              color: Color(0xFF5D5FEF),
-              fontWeight: medium,
-            ),
-            height: 20,
-            textStyle: const TextStyle(
-              fontFamily: "Inter",
-              fontSize: 14,
-              color: Color(0xFF4D515A),
-              fontWeight: medium,
-            ),
-            onChanged: (index) {
-              print(index);
-            },
-            elements: const [
-              "Barchasi",
-              "Dasturlash",
-              "Matematika",
-              "Ingliz tili",
-              "Kompyuter savodxonligi",
-            ]),
+        BlocBuilder<OrgSubjectsBloc, OrgSubjectsState>(
+          bloc: orgSubjectBloc,
+          builder: (context, state) {
+            late List<String> taps;
+
+            return state is OrgSubjectsLoadingState
+                ? const Center(child: CircularProgressIndicator())
+                : state is OrgSubjectsDataState
+                    ? EduSelectablePart(
+                        tappedButtonTextStyle: const TextStyle(
+                          fontFamily: "Inter",
+                          fontSize: 14,
+                          color: Color(0xFF5D5FEF),
+                          fontWeight: medium,
+                        ),
+                        height: 20,
+                        textStyle: const TextStyle(
+                          fontFamily: "Inter",
+                          fontSize: 14,
+                          color: Color(0xFF4D515A),
+                          fontWeight: medium,
+                        ),
+                        onChanged: (index) {
+                          log(index);
+                        },
+                        elements: tabElements + state.organizationSubjectList.map((e) => e.name).toList(),
+                      )
+                    : const SizedBox();
+          },
+        ),
         const SizedBox(height: 12),
         Expanded(
           child: ScrollConfiguration(

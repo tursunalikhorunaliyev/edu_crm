@@ -73,3 +73,4 @@ const TextStyle sideBarButton = TextStyle(
   fontSize: 16,
 );
 
+String token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0dXJzdW5hbGkiLCJpYXQiOjE2OTEwNjYyOTgsImV4cCI6MTY5MTA2ODg5MH0.Hwzdt66ypqt2HI_J6pdBEOHrsYyMpvr1G8-eeuKQ1WCKFwrIguvThGGEaJHvzjyiWubc0DFbrH3vIY7N52u4ZQ";
