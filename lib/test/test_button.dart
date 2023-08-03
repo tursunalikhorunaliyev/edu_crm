@@ -2,7 +2,7 @@ import 'package:edu_crm/utils/app_const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 //SideBarButton
-class SideBarButton extends StatefulWidget {
+class TestButton extends StatefulWidget {
   final String prefixIconName;
   final bool isNew;
   final bool isNotification;
@@ -15,7 +15,7 @@ class SideBarButton extends StatefulWidget {
   final double horizontalPadding;
   final double suffixTextSize;
   final bool onTapped;
-  const SideBarButton({
+  const TestButton({
     super.key,
     this.suffixTextSize = 14 / 1.5,
     this.horizontalPadding = 10,
@@ -32,10 +32,10 @@ class SideBarButton extends StatefulWidget {
   });
 
   @override
-  State<SideBarButton> createState() => _SideBarButtonState();
+  State<TestButton> createState() => _TestButtonState();
 }
 
-class _SideBarButtonState extends State<SideBarButton> {
+class _TestButtonState extends State<TestButton> {
   @override
   void initState() {
     super.initState();

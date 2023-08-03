@@ -72,3 +72,4 @@ const TextStyle sideBarButton = TextStyle(
   fontWeight: medium,
   fontSize: 16,
 );
+

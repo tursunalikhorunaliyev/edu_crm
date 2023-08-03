@@ -1,145 +1,226 @@
-import 'package:edu_badge_textfield/edu_badge_textfield.dart';
-import 'package:edu_button/edu_button.dart';
-import 'package:edu_crm/presentation/view/widgets/edu_datepicker_field.dart';
-import 'package:edu_drop_down/edu_drop_down.dart';
+import 'package:edu_crm/presentation/view/widgets/side_bar_animated_button.dart';
+import 'package:edu_crm/presentation/view/widgets/side_bar_button.dart';
+import 'package:edu_crm/presentation/view/widgets/text_plus_widget.dart';
+import 'package:edu_crm/test/test_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class Test extends StatelessWidget {
+class Test extends StatefulWidget {
   const Test({super.key});
 
   @override
+  State<Test> createState() => _TestState();
+}
+
+class _TestState extends State<Test> {
+  bool dashboard = false;
+  bool analitka = false;
+  bool yonalish = false;
+  bool calendar = false;
+  bool tasks = false;
+  bool profile = false;
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        padding: const EdgeInsets.all(45),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    EduBadgeText(text: "Ismi", isRequired: true),
-                    SizedBox(height: 6),
-                    EduTextfield(width: 460 / 1.5),
-                    SizedBox(height: 30),
-                    EduBadgeText(text: "Otasini ismi"),
-                    SizedBox(height: 6),
-                    EduTextfield(width: 460 / 1.5),
-                    SizedBox(height: 30),
-                    EduBadgeText(text: "Pasport Seriasi", isRequired: true),
-                    SizedBox(height: 6),
-                    EduTextfield(width: 460 / 1.5),
-                    SizedBox(height: 30),
-                    EduBadgeText(text: "Malumoti", isRequired: true),
-                    SizedBox(height: 6),
-                    EduDropDown(
-                      width: 460 / 1.5,
-                      elements: [],
-                      contentGap: 6,
-                      isDate: true,
-                      dateList: [
-                        "Malumotni tanlang",
-                        "Oliy",
-                        "O'rta maxsus",
-                        "Bakalavr",
-                      ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              //bu shapkasi side barning eng yuqori qismida turadigan widget
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: 28 / 1.5,
+                    height: 28,
+                    child: Image.asset(
+                      "images/icon1.png",
+                      width: 28,
+                      height: 28,
                     ),
-                    SizedBox(height: 30),
-                    EduBadgeText(
-                      text: "Telefon raqami (Qo’shimcha)",
-                      isRequired: true,
+                  ),
+                  const SizedBox(width: 5 / 1.5),
+                  const Text(
+                    "REduse",
+                    style: TextStyle(
+                      fontFamily: "Inter",
+                      fontWeight: FontWeight.w900,
+                      fontSize: 32 / 1.5,
+                      color: Color(0xFF172D43),
                     ),
-                    SizedBox(height: 6),
-                    EduTextfield(
-                      width: 460 / 1.5,
-                      hintText: "+998",
-                    ),
-                    SizedBox(height: 30),
-                    EduBadgeText(
-                      text: "Instagram (username)",
-                      isRequired: true,
-                    ),
-                    SizedBox(height: 6),
-                    EduTextfield(
-                      width: 460 / 1.5,
-                    ),
-                  ],
+                  ),
+                ],
+              ),
+              const SizedBox(height: 51 / 1.5),
+              const TextPlusIcon(
+                text: "PAGES",
+                iconPath: "Plus.png",
+              ),
+              const SizedBox(height: 11 / 1.5),
+
+              GestureDetector(
+                onTap: () {
+                  dashboard = !dashboard;
+                  analitka = false;
+                  yonalish = false;
+                  calendar = false;
+                  tasks = false;
+                  profile = false;
+                  setState(() {});
+                },
+                child: TestButton(
+                  prefixIconName: "images/graph.png",
+                  text: "Dashboard",
+                  iconHeight: 24.06 / 1.5,
+                  iconWidth: 24.06 / 1.5,
+                  onTapped: dashboard,
                 ),
-                const Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    EduBadgeText(text: "Familyasi", isRequired: true),
-                    SizedBox(height: 6),
-                    EduTextfield(width: 460 / 1.5),
-                    SizedBox(height: 30),
-                    EduBadgeText(text: "Tug'ulgan sanasi", isRequired: true),
-                    SizedBox(height: 6),
-                    EduDataPickerField(
-                      width: 460 / 1.5,
-                      text: "MM / DD / YYYY",
-                      height: 40,
-                    ),
-                    SizedBox(height: 30),
-                    EduBadgeText(text: "Yashash manzili"),
-                    SizedBox(height: 6),
-                    EduTextfield(width: 460 / 1.5),
-                    SizedBox(height: 30),
-                    EduBadgeText(
-                      text: "Telefon raqami (Asosiy)",
-                      isRequired: true,
-                    ),
-                    SizedBox(height: 6),
-                    EduTextfield(
-                      width: 460 / 1.5,
-                      hintText: "+998",
-                    ),
-                    SizedBox(height: 30),
-                    EduBadgeText(text: "Telegram username"),
-                    SizedBox(height: 6),
-                    EduTextfield(width: 460 / 1.5),
-                  ],
+              ),
+
+              const SizedBox(height: 11 / 1.5),
+              GestureDetector(
+                onTap: () {
+                  analitka = !analitka;
+
+                  dashboard = false;
+                  yonalish = false;
+                  calendar = false;
+                  tasks = false;
+                  profile = false;
+                  setState(() {});
+                },
+                child: TestButton(
+                  prefixIconName: "images/chart-square.png",
+                  text: "Analitika",
+                  iconHeight: 24.06 / 1.5,
+                  iconWidth: 24.06 / 1.5,
+                  isNew: true,
+                  onTapped: analitka,
                 ),
-                Column(
-                  children: [
-                    Container(
-                      alignment: Alignment.center,
-                      width: 430,
-                      height: 368,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFF0F0FF),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: const Text(
-                        "Hodim rasmi",
-                        style: TextStyle(
-                          color: Color(0XFF1E293B),
-                          fontFamily: "Inter",
-                          fontWeight: FontWeight.w700,
-                          fontSize: 32,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 30),
-                    const EduButton(
-                      verticalPadding: 14,
-                      horizontalPadding: 156,
-                      containerColor: Color(0xFF10B981),
-                      text: "Rasm tanlash",
-                      textColor: Colors.white,
-                    )
-                  ],
+              ),
+
+              const SizedBox(height: 11 / 1.5),
+              SideBarAnimatedButton(
+                text: "Ichki tizim",
+                icon: "assets/images/Iconebox.png",
+                elements: const [
+                  "Hodimlar",
+                  "O'qituvchilar",
+                  "Darsjadvallari"
+                ],
+                contentHeight: 134,
+                onChanged: (index) {
+                  print(index);
+                },
+              ),
+              const Padding(
+                padding: EdgeInsets.only(right: 17 / 1.5, top: 50 / 1.5),
+                child: TextPlusIcon(
+                  text: "APPS",
+                  iconPath: "Plus.png",
                 ),
-              ],
-            ),
-          ],
+              ),
+              const SizedBox(height: 12 / 1.5),
+              SideBarAnimatedButton(
+                text: "Fan va yo’nalishlar",
+                icon: "assets/images/empty-wallet.png",
+                elements: const [],
+                contentHeight: 50,
+                onChanged: (index) {
+                  print(index);
+                },
+              ),
+              const SizedBox(height: 11 / 1.5),
+              GestureDetector(
+                onTap: () {
+                  dashboard = false;
+                  analitka = false;
+                  yonalish = !yonalish;
+                  calendar = false;
+                  tasks = false;
+                  profile = false;
+                  setState(() {});
+                },
+                child: TestButton(
+                  prefixIconName: "images/chart-square.png",
+                  text: "Yo’nalishlar",
+                  iconHeight: 24.06 / 1.5,
+                  iconWidth: 24.06 / 1.5,
+                  isNotification: true,
+                  notificationCount: 16,
+                  onTapped: yonalish,
+                ),
+              ),
+              const SizedBox(height: 11 / 1.5),
+              GestureDetector(
+                onTap: () {
+                  dashboard = false;
+                  analitka = false;
+                  yonalish = false;
+                  calendar = !calendar;
+                  tasks = false;
+                  profile = false;
+                  setState(() {});
+                },
+                child: TestButton(
+                  iconHeight: 24.06 / 1.5,
+                  iconWidth: 24.06 / 1.5,
+                  prefixIconName: "images/calendar.png",
+                  text: "Calendar",
+                  onTapped: calendar,
+                ),
+              ),
+              const SizedBox(height: 11 / 1.5),
+              GestureDetector(
+                onTap: () {
+                  dashboard = false;
+                  analitka = false;
+                  yonalish = false;
+                  calendar = false;
+                  tasks = !tasks;
+                  profile = false;
+                  setState(() {});
+                },
+                child: TestButton(
+                  iconHeight: 24.06 / 1.5,
+                  iconWidth: 24.06 / 1.5,
+                  prefixIconName: "images/Notes.png",
+                  text: "Tasks",
+                  onTapped: tasks,
+                ),
+              ),
+              const SizedBox(height: 50 / 1.5),
+              const Text(
+                "SETTINGS",
+                style: TextStyle(
+                  fontSize: 16 / 1.5,
+                  color: Color(0xFF7B8190),
+                ),
+              ),
+              const SizedBox(height: 11 / 1.5),
+              GestureDetector(
+                onTap: () {
+                  dashboard = false;
+                  analitka = false;
+                  yonalish = false;
+                  calendar = false;
+                  tasks = false;
+                  profile = !profile;
+                  setState(() {});
+                },
+                child: TestButton(
+                  iconHeight: 24.06 / 1.5,
+                  iconWidth: 24.06 / 1.5,
+                  prefixIconName: "images/setting-2.png",
+                  text: "My Profile",
+                  onTapped: profile,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -1,18 +1,30 @@
 import 'package:edu_crm/presentation/view/widgets/side_bar_animated_button.dart';
-import 'package:edu_crm/presentation/view/widgets/side_bar_button.dart';
 import 'package:edu_crm/presentation/view/widgets/text_plus_widget.dart';
+import 'package:edu_crm/test/test_button.dart';
 import 'package:flutter/material.dart';
 
-class SideBarWidget extends StatelessWidget {
+class SideBarWidget extends StatefulWidget {
   const SideBarWidget({super.key});
+
+  @override
+  State<SideBarWidget> createState() => _SideBarWidgetState();
+}
+
+class _SideBarWidgetState extends State<SideBarWidget> {
+  bool dashboard = false;
+  bool analitka = false;
+  bool yonalish = false;
+  bool calendar = false;
+  bool tasks = false;
+  bool profile = false;
   @override
   Widget build(BuildContext context) {
-    return ColoredBox(
-      color: Colors.white,
-      child: SingleChildScrollView(
+    return Scaffold(
+      body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               //bu shapkasi side barning eng yuqori qismida turadigan widget
@@ -35,7 +47,7 @@ class SideBarWidget extends StatelessWidget {
                       fontFamily: "Inter",
                       fontWeight: FontWeight.w900,
                       fontSize: 32 / 1.5,
-                      color: const Color(0xFF172D43),
+                      color: Color(0xFF172D43),
                     ),
                   ),
                 ],
@@ -46,20 +58,48 @@ class SideBarWidget extends StatelessWidget {
                 iconPath: "Plus.png",
               ),
               const SizedBox(height: 11 / 1.5),
-              const SideBarButton(
-                prefixIconName: "images/graph.png",
-                text: "Dashboard",
-                iconHeight: 24.06 / 1.5,
-                iconWidth: 24.06 / 1.5,
+
+              GestureDetector(
+                onTap: () {
+                  dashboard = !dashboard;
+                  analitka = false;
+                  yonalish = false;
+                  calendar = false;
+                  tasks = false;
+                  profile = false;
+                  setState(() {});
+                },
+                child: TestButton(
+                  prefixIconName: "images/graph.png",
+                  text: "Dashboard",
+                  iconHeight: 24.06 / 1.5,
+                  iconWidth: 24.06 / 1.5,
+                  onTapped: dashboard,
+                ),
               ),
+
               const SizedBox(height: 11 / 1.5),
-              const SideBarButton(
-                prefixIconName: "images/chart-square.png",
-                text: "Analitika",
-                iconHeight: 24.06 / 1.5,
-                iconWidth: 24.06 / 1.5,
-                isNew: true,
+              GestureDetector(
+                onTap: () {
+                  analitka = !analitka;
+
+                  dashboard = false;
+                  yonalish = false;
+                  calendar = false;
+                  tasks = false;
+                  profile = false;
+                  setState(() {});
+                },
+                child: TestButton(
+                  prefixIconName: "images/chart-square.png",
+                  text: "Analitika",
+                  iconHeight: 24.06 / 1.5,
+                  iconWidth: 24.06 / 1.5,
+                  isNew: true,
+                  onTapped: analitka,
+                ),
               ),
+
               const SizedBox(height: 11 / 1.5),
               SideBarAnimatedButton(
                 text: "Ichki tizim",
@@ -88,27 +128,63 @@ class SideBarWidget extends StatelessWidget {
                 },
               ),
               const SizedBox(height: 11 / 1.5),
-              const SideBarButton(
-                prefixIconName: "images/chart-square.png",
-                text: "Yo’nalishlar",
-                iconHeight: 24.06 / 1.5,
-                iconWidth: 24.06 / 1.5,
-                isNotification: true,
-                notificationCount: 16,
+              GestureDetector(
+                onTap: () {
+                  dashboard = false;
+                  analitka = false;
+                  yonalish = !yonalish;
+                  calendar = false;
+                  tasks = false;
+                  profile = false;
+                  setState(() {});
+                },
+                child: TestButton(
+                  prefixIconName: "images/chart-square.png",
+                  text: "Yo’nalishlar",
+                  iconHeight: 24.06 / 1.5,
+                  iconWidth: 24.06 / 1.5,
+                  isNotification: true,
+                  notificationCount: 16,
+                  onTapped: yonalish,
+                ),
               ),
               const SizedBox(height: 11 / 1.5),
-              const SideBarButton(
-                iconHeight: 24.06 / 1.5,
-                iconWidth: 24.06 / 1.5,
-                prefixIconName: "images/calendar.png",
-                text: "Calendar",
+              GestureDetector(
+                onTap: () {
+                  dashboard = false;
+                  analitka = false;
+                  yonalish = false;
+                  calendar = !calendar;
+                  tasks = false;
+                  profile = false;
+                  setState(() {});
+                },
+                child: TestButton(
+                  iconHeight: 24.06 / 1.5,
+                  iconWidth: 24.06 / 1.5,
+                  prefixIconName: "images/calendar.png",
+                  text: "Calendar",
+                  onTapped: calendar,
+                ),
               ),
               const SizedBox(height: 11 / 1.5),
-              const SideBarButton(
-                iconHeight: 24.06 / 1.5,
-                iconWidth: 24.06 / 1.5,
-                prefixIconName: "images/Notes.png",
-                text: "Tasks",
+              GestureDetector(
+                onTap: () {
+                  dashboard = false;
+                  analitka = false;
+                  yonalish = false;
+                  calendar = false;
+                  tasks = !tasks;
+                  profile = false;
+                  setState(() {});
+                },
+                child: TestButton(
+                  iconHeight: 24.06 / 1.5,
+                  iconWidth: 24.06 / 1.5,
+                  prefixIconName: "images/Notes.png",
+                  text: "Tasks",
+                  onTapped: tasks,
+                ),
               ),
               const SizedBox(height: 50 / 1.5),
               const Text(
@@ -119,11 +195,23 @@ class SideBarWidget extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 11 / 1.5),
-              const SideBarButton(
-                iconHeight: 24.06 / 1.5,
-                iconWidth: 24.06 / 1.5,
-                prefixIconName: "images/setting-2.png",
-                text: "My Profile",
+              GestureDetector(
+                onTap: () {
+                  dashboard = false;
+                  analitka = false;
+                  yonalish = false;
+                  calendar = false;
+                  tasks = false;
+                  profile = !profile;
+                  setState(() {});
+                },
+                child: TestButton(
+                  iconHeight: 24.06 / 1.5,
+                  iconWidth: 24.06 / 1.5,
+                  prefixIconName: "images/setting-2.png",
+                  text: "My Profile",
+                  onTapped: profile,
+                ),
               ),
             ],
           ),

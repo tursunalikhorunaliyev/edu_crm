@@ -1,5 +1,4 @@
 import 'package:edu_button/edu_button.dart';
-import 'package:edu_crm/presentation/view/widgets/path_widget.dart';
 import 'package:edu_crm/presentation/view/widgets/subject_card.dart';
 import 'package:edu_crm/utils/app_const.dart';
 import 'package:edu_selectable_part/edu_selectable_part.dart';
@@ -12,90 +11,81 @@ class SubSubjectPart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Padding(
-      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          const SizedBox(
-            height: 25 / 1.5,
-            child: PathWidget(
-              elements: ["Home", "Ichki tizim", "Hodimlar"],
+        body: Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        const Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "Fan va yo'nalishlar",
+              style: TextStyle(
+                fontFamily: "Inter",
+                color: Color(0xFF1E293B),
+                fontSize: 24 / 1.5,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          ),
-          const Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Fan va yo'nalishlar",
-                style: TextStyle(
-                  fontFamily: "Inter",
-                  color: Color(0xFF1E293B),
-                  fontSize: 24 / 1.5,
-                  fontWeight: FontWeight.bold,
-                ),
+            EduButton(
+              verticalPadding: 12 / 1.5,
+              horizontalPadding: 8,
+              buttonWithLeftIcon: true,
+              containerColor: Color(0xFF5D5FEF),
+              text: "Yangi yonalish qo'shish",
+              iconPath: "assets/icons/Add_Plus.png",
+            )
+          ],
+        ),
+        const SizedBox(
+          height: 30,
+        ),
+        EduSelectablePart(
+            tappedButtonTextStyle: const TextStyle(
+              fontFamily: "Inter",
+              fontSize: 14,
+              color: Color(0xFF5D5FEF),
+              fontWeight: medium,
+            ),
+            height: 20,
+            textStyle: const TextStyle(
+              fontFamily: "Inter",
+              fontSize: 14,
+              color: Color(0xFF4D515A),
+              fontWeight: medium,
+            ),
+            onChanged: (index) {
+              print(index);
+            },
+            elements: const [
+              "Barchasi",
+              "Dasturlash",
+              "Matematika",
+              "Ingliz tili",
+              "Kompyuter savodxonligi",
+            ]),
+        const SizedBox(height: 12),
+        Expanded(
+          child: ScrollConfiguration(
+            behavior:
+                ScrollConfiguration.of(context).copyWith(scrollbars: false),
+            child: MasonryGridView.builder(
+              // padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+              physics: const BouncingScrollPhysics(),
+              crossAxisSpacing: 36,
+              mainAxisSpacing: 16,
+              itemCount: subgect.length,
+              gridDelegate:
+                  const SliverSimpleGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 5,
               ),
-              EduButton(
-                verticalPadding: 12 / 1.5,
-                horizontalPadding: 8,
-                buttonWithLeftIcon: true,
-                containerColor: Color(0xFF5D5FEF),
-                text: "Yangi yonalish qo'shish",
-                iconPath: "assets/icons/Add_Plus.png",
-              )
-            ],
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          EduSelectablePart(
-              tappedButtonTextStyle: const TextStyle(
-                fontFamily: "Inter",
-                fontSize: 14,
-                color: Color(0xFF5D5FEF),
-                fontWeight: medium,
-              ),
-              height: 20,
-              textStyle: const TextStyle(
-                fontFamily: "Inter",
-                fontSize: 14,
-                color: Color(0xFF4D515A),
-                fontWeight: medium,
-              ),
-              onChanged: (index) {
-                print(index);
+              itemBuilder: (context, index) {
+                return subgect[index];
               },
-              elements: const [
-                "Barchasi",
-                "Dasturlash",
-                "Matematika",
-                "Ingliz tili",
-                "Kompyuter savodxonligi",
-              ]),
-          const SizedBox(height: 12),
-          Expanded(
-            child: ScrollConfiguration(
-              behavior:
-                  ScrollConfiguration.of(context).copyWith(scrollbars: false),
-              child: MasonryGridView.builder(
-                // padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-                physics: const BouncingScrollPhysics(),
-                crossAxisSpacing: 36,
-                mainAxisSpacing: 16,
-                itemCount: subgect.length,
-                gridDelegate:
-                    const SliverSimpleGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 5,
-                ),
-                itemBuilder: (context, index) {
-                  return subgect[index];
-                },
-              ),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     ));
   }
 
