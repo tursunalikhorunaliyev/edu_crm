@@ -1,7 +1,9 @@
 import 'dart:math';
 
 import 'package:edu_button/edu_button.dart';
-import 'package:edu_crm/presentation/controller/blocs/org_subjects_bloc.dart';
+import 'package:edu_crm/presentation/controller/blocs/orgsubjects/org_subjects_bloc.dart';
+import 'package:edu_crm/presentation/controller/blocs/orgsubjects/org_subjects_event.dart';
+import 'package:edu_crm/presentation/controller/blocs/orgsubsubjects/org_sub_subjects_bloc.dart';
 import 'package:edu_crm/presentation/view/widgets/subject_card.dart';
 import 'package:edu_crm/utils/app_const.dart';
 import 'package:edu_selectable_part/edu_selectable_part.dart';
@@ -18,18 +20,19 @@ class SubSubjectPart extends StatefulWidget {
 
 class _SubSubjectPartState extends State<SubSubjectPart> {
   final orgSubjectBloc = OrgSubjectsBloc();
+  final orgSubSubjectsBloc = OrgSubSubjectsBloc();
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-
-    orgSubjectBloc.add(OrgSubjectAllDataEvent());
+    orgSubjectBloc.add(OrgSubjectCategoryEvent());
+    orgSubSubjectsBloc.add(OrgSubSubjectAllEvent());
   }
 
   @override
   Widget build(BuildContext context) {
-    List<String > tabElements = ["Barchasi"];
+    List<String> tabElements = ["Barchasi"];
     return Scaffold(
         body: Column(
       crossAxisAlignment: CrossAxisAlignment.end,
@@ -63,8 +66,6 @@ class _SubSubjectPartState extends State<SubSubjectPart> {
         BlocBuilder<OrgSubjectsBloc, OrgSubjectsState>(
           bloc: orgSubjectBloc,
           builder: (context, state) {
-            late List<String> taps;
-
             return state is OrgSubjectsLoadingState
                 ? const Center(child: CircularProgressIndicator())
                 : state is OrgSubjectsDataState
@@ -85,7 +86,10 @@ class _SubSubjectPartState extends State<SubSubjectPart> {
                         onChanged: (index) {
                           log(index);
                         },
-                        elements: tabElements + state.organizationSubjectList.map((e) => e.name).toList(),
+                        elements: tabElements +
+                            state.organizationSubjectList
+                                .map((e) => e.name)
+                                .toList(),
                       )
                     : const SizedBox();
           },
@@ -95,20 +99,42 @@ class _SubSubjectPartState extends State<SubSubjectPart> {
           child: ScrollConfiguration(
             behavior:
                 ScrollConfiguration.of(context).copyWith(scrollbars: false),
-            child: MasonryGridView.builder(
-              // padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-              physics: const BouncingScrollPhysics(),
-              crossAxisSpacing: 36,
-              mainAxisSpacing: 16,
-              itemCount: subgect.length,
-              gridDelegate:
-                  const SliverSimpleGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 5,
-              ),
-              itemBuilder: (context, index) {
-                return subgect[index];
-              },
-            ),
+            child: BlocBuilder<OrgSubSubjectsBloc, OrgSubSubjectsState>(
+                bloc: orgSubSubjectsBloc,
+                builder: (context, state) {
+                  return state is OrgSubSubjectsLoadingState
+                      ? const Center(child: CircularProgressIndicator())
+                      : state is OrgSubSubjectAllDataState
+                          ? MasonryGridView.builder(
+                              // padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+                              physics: const BouncingScrollPhysics(),
+                              crossAxisSpacing: 36,
+                              mainAxisSpacing: 16,
+                              itemCount:
+                                  state.organizationAllSubDataModel.length,
+                              gridDelegate:
+                                  const SliverSimpleGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 5,
+                              ),
+                              itemBuilder: (context, index) {
+                                debugPrint(state
+                                    .organizationAllSubDataModel[index]
+                                    .imageStore);
+                                return SubjectCard(
+                                  width: 300 / 1.2,
+                                  text: state.organizationAllSubDataModel[index]
+                                      .subject.name,
+                                  longText: state
+                                      .organizationAllSubDataModel[index]
+                                      .description,
+                                  imageUrl: state
+                                      .organizationAllSubDataModel[index]
+                                      .imageStore,
+                                );
+                              },
+                            )
+                          : const SizedBox();
+                }),
           ),
         ),
       ],

@@ -2,6 +2,7 @@ import 'package:edu_crm/domen/entity/education_level/education_level.dart';
 import 'package:edu_crm/domen/entity/interests/interests_model.dart';
 import 'package:edu_crm/domen/entity/login/login_model.dart';
 import 'package:edu_crm/domen/entity/organizationsubject/organization_subject_model.dart';
+import 'package:edu_crm/domen/entity/organizationsubsubject/organization_sub_subject_model.dart';
 import 'package:edu_crm/domen/entity/physicalface/physical_face_model.dart';
 import 'package:edu_crm/domen/entity/physicalstuffcreate/stuff_category_create_model.dart';
 import 'package:edu_crm/domen/entity/stuffcategories.dart/stuff_categories_model.dart';
@@ -11,7 +12,7 @@ import 'package:dio/dio.dart';
 
 part 'api_service.g.dart';
 
-@RestApi(baseUrl: "https://4f29-185-139-137-71.ngrok-free.app/api")
+@RestApi(baseUrl: "https://5b63-84-54-80-19.ngrok-free.app/api")
 abstract class ApiService {
   factory ApiService(Dio dio) = _ApiService;
 
@@ -89,4 +90,11 @@ abstract class ApiService {
 //  fan va Yo'nalishlar
   @GET("/org/ss/org-subjects")
   Future<List<OrganizationSubjectModel>> getOrganizationSubject();
+
+  @GET("/org/ss/all-by-org")
+  Future<List<OrganizationSubSubjectModel>> getOrganizationAll();
+
+  @GET("/org/ss/ss-by-org")
+  Future<List<OrganizationSubSubjectModel>> getOrganizationSort(
+      @Query("sid") int sid);
 }

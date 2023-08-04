@@ -13,7 +13,7 @@ class _ApiService implements ApiService {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://4f29-185-139-137-71.ngrok-free.app/api';
+    baseUrl ??= 'https://5b63-84-54-80-19.ngrok-free.app/api';
   }
 
   final Dio _dio;
@@ -358,6 +358,58 @@ class _ApiService implements ApiService {
     var value = _result.data!
         .map((dynamic i) =>
             OrganizationSubjectModel.fromJson(i as Map<String, dynamic>))
+        .toList();
+    return value;
+  }
+
+  @override
+  Future<List<OrganizationSubSubjectModel>> getOrganizationAll() async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch<List<dynamic>>(
+        _setStreamType<List<OrganizationSubSubjectModel>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/org/ss/all-by-org',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    var value = _result.data!
+        .map((dynamic i) =>
+            OrganizationSubSubjectModel.fromJson(i as Map<String, dynamic>))
+        .toList();
+    return value;
+  }
+
+  @override
+  Future<List<OrganizationSubSubjectModel>> getOrganizationSort(sid) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'sid': sid};
+    final _headers = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch<List<dynamic>>(
+        _setStreamType<List<OrganizationSubSubjectModel>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/org/ss/ss-by-org',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    var value = _result.data!
+        .map((dynamic i) =>
+            OrganizationSubSubjectModel.fromJson(i as Map<String, dynamic>))
         .toList();
     return value;
   }
