@@ -74,7 +74,7 @@ class SubjectCard extends StatelessWidget {
             ImageNetwork(
               image: imageUrl,
               height: 160 / 1.2,
-              width: 200,
+              width: 300,
             ),
           ],
         ),
