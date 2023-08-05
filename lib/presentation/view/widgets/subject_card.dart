@@ -1,6 +1,8 @@
+import 'dart:js';
+
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:edu_crm/utils/app_const.dart';
 import 'package:flutter/material.dart';
-import 'package:image_network/image_network.dart';
 
 class SubjectCard extends StatelessWidget {
   final double width;
@@ -71,10 +73,19 @@ class SubjectCard extends StatelessWidget {
                 ),
               ),
             ),
-            ImageNetwork(
-              image: imageUrl,
+            Container(
+              alignment: Alignment.center,
               height: 160 / 1.2,
-              width: 300,
+              width: 220,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: NetworkImage(
+                    imageUrl,
+                    headers: {"ngrok-skip-browser-warning": "any"},
+                  ),
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
           ],
         ),

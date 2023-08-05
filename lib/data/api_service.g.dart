@@ -13,7 +13,7 @@ class _ApiService implements ApiService {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'http://192.168.242.66:8080/api';
+    baseUrl ??= 'https://1eb2-213-230-78-214.ngrok-free.app/api';
   }
 
   final Dio _dio;
@@ -363,7 +363,8 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<List<OrganizationSubSubjectModel>> getOrganizationAll() async {
+  Future<List<OrganizationSubSubjectModel>>
+      getOrganizationSubSubjectsAll() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -389,7 +390,8 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<List<OrganizationSubSubjectModel>> getOrganizationSort(sid) async {
+  Future<List<OrganizationSubSubjectModel>> getOrganizationSubSubjectBySort(
+      sid) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'sid': sid};
     final _headers = <String, dynamic>{};

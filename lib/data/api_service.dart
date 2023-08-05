@@ -12,7 +12,7 @@ import 'package:dio/dio.dart';
 
 part 'api_service.g.dart';
 
-@RestApi(baseUrl: "http://192.168.242.66:8080/api")
+@RestApi(baseUrl: "https://1eb2-213-230-78-214.ngrok-free.app/api")
 abstract class ApiService {
   factory ApiService(Dio dio) = _ApiService;
 
@@ -92,9 +92,9 @@ abstract class ApiService {
   Future<List<OrganizationSubjectModel>> getOrganizationSubject();
 
   @GET("/org/ss/all-by-org")
-  Future<List<OrganizationSubSubjectModel>> getOrganizationAll();
+  Future<List<OrganizationSubSubjectModel>> getOrganizationSubSubjectsAll();
 
   @GET("/org/ss/ss-by-org")
-  Future<List<OrganizationSubSubjectModel>> getOrganizationSort(
+  Future<List<OrganizationSubSubjectModel>> getOrganizationSubSubjectBySort(
       @Query("sid") int sid);
 }

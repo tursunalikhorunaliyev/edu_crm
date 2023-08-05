@@ -1,4 +1,5 @@
 import 'package:edu_crm/presentation/view/parts/new_face_part.dart';
+import 'package:edu_crm/presentation/view/parts/new_sub_subject_part.dart';
 import 'package:edu_crm/presentation/view/parts/physical_stuff_part.dart';
 import 'package:edu_crm/presentation/view/parts/sub_subject_part.dart';
 import 'package:edu_crm/presentation/view/widgets/path_widget.dart';
@@ -40,7 +41,7 @@ class DashBoard extends StatelessWidget {
                             elements: ["Home", "Ichki tizim", "Hodimlar"],
                           ),
                         ),
-                        Expanded(child: SubSubjectPart()),
+                        Expanded(child: NewSubSubjectPart()),
                       ],
                     ),
                   ),

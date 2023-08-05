@@ -5,8 +5,8 @@ abstract class OrgSubSubjectsEvent {}
 
 class OrgSubSubjectAllEvent extends OrgSubSubjectsEvent {}
 
-class OrgSubSubjectGetByEvent extends OrgSubSubjectsEvent {
-  final int subSubjectId;
+class OrgSubSubjectGetBySubjectIdEvent extends OrgSubSubjectsEvent {
+  final int subjectId;
 
-  OrgSubSubjectGetByEvent({required this.subSubjectId});
+  OrgSubSubjectGetBySubjectIdEvent({required this.subjectId});
 }

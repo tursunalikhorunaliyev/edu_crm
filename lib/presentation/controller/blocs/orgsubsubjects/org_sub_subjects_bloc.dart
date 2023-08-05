@@ -20,16 +20,18 @@ class OrgSubSubjectsBloc
 
   OrgSubSubjectsBloc() : super(OrgSubSubjectsInitial()) {
     on<OrgSubSubjectAllEvent>((event, emit) async {
+      emit(OrgSubSubjectsLoadingState());
       List<OrganizationSubSubjectModel> organizationModel =
-          await apiService.getOrganizationAll();
-      emit(OrgSubSubjectAllDataState(
-          organizationAllSubDataModel: organizationModel));
+          await apiService.getOrganizationSubSubjectsAll();
+      emit(OrgSubSubjectDataState(
+          organizationSubSubjectData: organizationModel));
     });
-    on<OrgSubSubjectGetByEvent>((event, emit) async {
+    on<OrgSubSubjectGetBySubjectIdEvent>((event, emit) async {
+      emit(OrgSubSubjectsLoadingState());
       List<OrganizationSubSubjectModel> organizationModel =
-          await apiService.getOrganizationSort(event.subSubjectId);
-      emit(OrgSubSubjectAllDataState(
-          organizationAllSubDataModel: organizationModel));
+          await apiService.getOrganizationSubSubjectBySort(event.subjectId);
+      emit(OrgSubSubjectDataState(
+          organizationSubSubjectData: organizationModel));
     });
   }
 }

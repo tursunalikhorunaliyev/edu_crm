@@ -7,8 +7,8 @@ class OrgSubSubjectsInitial extends OrgSubSubjectsState {}
 
 class OrgSubSubjectsLoadingState extends OrgSubSubjectsState {}
 
-class OrgSubSubjectAllDataState extends OrgSubSubjectsState {
-  final List<OrganizationSubSubjectModel> organizationAllSubDataModel;
+class OrgSubSubjectDataState extends OrgSubSubjectsState {
+  final List<OrganizationSubSubjectModel> organizationSubSubjectData;
 
-  OrgSubSubjectAllDataState({required this.organizationAllSubDataModel});
+  OrgSubSubjectDataState({required this.organizationSubSubjectData});
 }

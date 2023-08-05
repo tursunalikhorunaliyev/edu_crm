@@ -33,6 +33,7 @@ class _SubSubjectPartState extends State<SubSubjectPart> {
   @override
   Widget build(BuildContext context) {
     List<String> tabElements = ["Barchasi"];
+
     return Scaffold(
         body: Column(
       crossAxisAlignment: CrossAxisAlignment.end,
@@ -83,13 +84,19 @@ class _SubSubjectPartState extends State<SubSubjectPart> {
                           color: Color(0xFF4D515A),
                           fontWeight: medium,
                         ),
-                        onChanged: (index) {
-                          log(index);
-                        },
                         elements: tabElements +
                             state.organizationSubjectList
                                 .map((e) => e.name)
                                 .toList(),
+                        onChanged: (index) {
+                          if(index == 0){
+                            orgSubSubjectsBloc.add(OrgSubSubjectAllEvent());
+                          }else{
+                            orgSubSubjectsBloc.add(OrgSubSubjectGetBySubjectIdEvent(subjectId: state.organizationSubjectList[index-1].id));
+                          }
+
+
+                        },
                       )
                     : const SizedBox();
           },
@@ -104,31 +111,29 @@ class _SubSubjectPartState extends State<SubSubjectPart> {
                 builder: (context, state) {
                   return state is OrgSubSubjectsLoadingState
                       ? const Center(child: CircularProgressIndicator())
-                      : state is OrgSubSubjectAllDataState
+                      : state is OrgSubSubjectDataState
                           ? MasonryGridView.builder(
                               // padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                               physics: const BouncingScrollPhysics(),
                               crossAxisSpacing: 36,
                               mainAxisSpacing: 16,
                               itemCount:
-                                  state.organizationAllSubDataModel.length,
+                                  state.organizationSubSubjectData.length,
                               gridDelegate:
                                   const SliverSimpleGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 5,
                               ),
                               itemBuilder: (context, index) {
-                                debugPrint(state
-                                    .organizationAllSubDataModel[index]
-                                    .imageStore);
+                                //            debugPrint(state.organizationSubSubjectData[index].imageStore);
                                 return SubjectCard(
                                   width: 300 / 1.2,
-                                  text: state.organizationAllSubDataModel[index]
-                                      .subject.name,
+                                  text: state.organizationSubSubjectData[index]
+                                      .subSubject.name,
                                   longText: state
-                                      .organizationAllSubDataModel[index]
+                                      .organizationSubSubjectData[index]
                                       .description,
                                   imageUrl: state
-                                      .organizationAllSubDataModel[index]
+                                      .organizationSubSubjectData[index]
                                       .imageStore,
                                 );
                               },
@@ -140,65 +145,4 @@ class _SubSubjectPartState extends State<SubSubjectPart> {
       ],
     ));
   }
-
-  final List<SubjectCard> subgect = [
-    const SubjectCard(
-      width: 300 / 1.2,
-      text: "Salom",
-      longText: "osmaomsaomsoams",
-      imageUrl:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNEpumaLHG_9MBK4kqBtB5OPyQX7hLnuaKZQ&usqp=CAU",
-    ),
-    const SubjectCard(
-      width: 300 / 1.2,
-      text: "Salom",
-      longText: "osmaomsaomsoams",
-      imageUrl:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNEpumaLHG_9MBK4kqBtB5OPyQX7hLnuaKZQ&usqp=CAU",
-    ),
-    const SubjectCard(
-      width: 300 / 1.2,
-      text: "Salom",
-      longText: "osmaomsaomsoams",
-      imageUrl:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNEpumaLHG_9MBK4kqBtB5OPyQX7hLnuaKZQ&usqp=CAU",
-    ),
-    const SubjectCard(
-      width: 300 / 1.2,
-      text: "Salom",
-      longText: "osmaomsaomsoams",
-      imageUrl:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNEpumaLHG_9MBK4kqBtB5OPyQX7hLnuaKZQ&usqp=CAU",
-    ),
-    const SubjectCard(
-      width: 300 / 1.2,
-      text: "Salom",
-      longText:
-          "osmaomsaomsoams,ossaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoams",
-      imageUrl:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNEpumaLHG_9MBK4kqBtB5OPyQX7hLnuaKZQ&usqp=CAU",
-    ),
-    const SubjectCard(
-      width: 300 / 1.2,
-      text: "Salom",
-      longText:
-          "osmaomsaomsoams,ossaomsoapjskldfjognjsioj;dhfgiohsodhfgiuhsiuhdfuihsiudhfgiuhsdiufhgiusdhfgiuhsdfiughiusdhfgiuhsdiufhgiusdhfiughsdiufhgiuhsdfighsiudhfgiushdfiughsiduhfgiushdfiughsdiuhfguishdfiughsiuhdfgiushdfiughsiuhfdgiuhsdfiughsihdfgiuhsdfiughsiduhfgihsdiughisdhfgiuhsdfiughsidufhmsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoamsosmaomsaomsoams",
-      imageUrl:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNEpumaLHG_9MBK4kqBtB5OPyQX7hLnuaKZQ&usqp=CAU",
-    ),
-    const SubjectCard(
-      width: 300 / 1.2,
-      text: "Salom",
-      longText: "osmaomsaomsoams",
-      imageUrl:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNEpumaLHG_9MBK4kqBtB5OPyQX7hLnuaKZQ&usqp=CAU",
-    ),
-    const SubjectCard(
-      width: 300 / 1.2,
-      text: "Salom",
-      longText: "osmaomsaomsoams",
-      imageUrl:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNEpumaLHG_9MBK4kqBtB5OPyQX7hLnuaKZQ&usqp=CAU",
-    ),
-  ];
 }
