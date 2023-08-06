@@ -17,7 +17,7 @@ class EduDataPickerField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: width,
-      height: 40,
+      height: height,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(5),
@@ -53,8 +53,8 @@ class EduDataPickerField extends StatelessWidget {
               ),
               child: Image.asset(
                 icon,
-                width: 20,
-                height: 20,
+                width: height/2,
+                height: height/2,
               ),
             ),
           ],

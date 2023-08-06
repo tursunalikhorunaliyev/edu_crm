@@ -253,10 +253,10 @@ packages:
     dependency: "direct main"
     description:
       name: edu_search_table_drop_down
-      sha256: "86295f18bf3bc7f64b52fc3796cf141777c2862c63b97eb70de424f712d8c409"
+      sha256: "44a0dc92c7560a105bb6974c8225d9117d4adc276e291623cf3179df6237771a"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.4"
+    version: "0.1.0"
   edu_selectable_part:
     dependency: "direct main"
     description:

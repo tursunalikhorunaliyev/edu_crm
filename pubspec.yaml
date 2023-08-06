@@ -48,7 +48,7 @@ dependencies:
   image_network: ^2.5.4+1
   cached_network_image: ^3.2.3
   dotted_border: ^2.0.0+3
-  edu_search_table_drop_down: ^0.0.4
+  edu_search_table_drop_down: ^0.1.0
   
 dev_dependencies:
   flutter_test:
