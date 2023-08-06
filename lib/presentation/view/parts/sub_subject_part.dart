@@ -10,6 +10,7 @@ import 'package:edu_selectable_part/edu_selectable_part.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:lottie/lottie.dart';
 
 class SubSubjectPart extends StatefulWidget {
   const SubSubjectPart({super.key});
@@ -89,13 +90,15 @@ class _SubSubjectPartState extends State<SubSubjectPart> {
                                 .map((e) => e.name)
                                 .toList(),
                         onChanged: (index) {
-                          if(index == 0){
+                          if (index == 0) {
                             orgSubSubjectsBloc.add(OrgSubSubjectAllEvent());
-                          }else{
-                            orgSubSubjectsBloc.add(OrgSubSubjectGetBySubjectIdEvent(subjectId: state.organizationSubjectList[index-1].id));
+                          } else {
+                            orgSubSubjectsBloc.add(
+                                OrgSubSubjectGetBySubjectIdEvent(
+                                    subjectId: state
+                                        .organizationSubjectList[index - 1]
+                                        .id));
                           }
-
-
                         },
                       )
                     : const SizedBox();
@@ -110,7 +113,10 @@ class _SubSubjectPartState extends State<SubSubjectPart> {
                 bloc: orgSubSubjectsBloc,
                 builder: (context, state) {
                   return state is OrgSubSubjectsLoadingState
-                      ? const Center(child: CircularProgressIndicator())
+                      ? Center(
+                          child: Lottie.asset("lottie/loading.json",
+                              width: 200, height: 200),
+                        )
                       : state is OrgSubSubjectDataState
                           ? MasonryGridView.builder(
                               // padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),

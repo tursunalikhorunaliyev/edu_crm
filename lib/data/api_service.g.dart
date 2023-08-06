@@ -13,7 +13,7 @@ class _ApiService implements ApiService {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://1eb2-213-230-78-214.ngrok-free.app/api';
+    baseUrl ??= 'https://b7ec-213-230-78-235.ngrok-free.app/api';
   }
 
   final Dio _dio;
