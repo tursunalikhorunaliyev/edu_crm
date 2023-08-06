@@ -7,6 +7,8 @@ import 'package:edu_crm/domen/entity/physicalface/physical_face_model.dart';
 import 'package:edu_crm/domen/entity/physicalstuffcreate/stuff_category_create_model.dart';
 import 'package:edu_crm/domen/entity/stuffcategories.dart/stuff_categories_model.dart';
 import 'package:edu_crm/domen/entity/stuffcategory/category_model.dart';
+import 'package:edu_crm/domen/entity/subjects/subject_model.dart';
+import 'package:edu_crm/domen/entity/subsubject/sub_subject_model.dart';
 import 'package:retrofit/http.dart';
 import 'package:dio/dio.dart';
 
@@ -97,4 +99,10 @@ abstract class ApiService {
   @GET("/org/ss/ss-by-org")
   Future<List<OrganizationSubSubjectModel>> getOrganizationSubSubjectBySort(
       @Query("sid") int sid);
+
+  @GET("/subjects/all")
+  Future<List<SubjectModel>> getAllSubjects();
+
+  @GET("/subjects/sub/all")
+  Future<List<SubjectModel>> getAllSubSubjects();
 }
