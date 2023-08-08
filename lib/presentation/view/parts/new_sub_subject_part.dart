@@ -1,14 +1,16 @@
+import 'dart:typed_data';
+
 import 'package:dotted_border/dotted_border.dart';
 import 'package:edu_badge_textfield/edu_badge_textfield.dart';
 import 'package:edu_button/edu_button.dart';
 import 'package:edu_crm/presentation/controller/blocs/subjects/subject_bloc.dart';
 import 'package:edu_crm/presentation/view/widgets/edu_datepicker_field.dart';
 import 'package:edu_crm/utils/app_const.dart';
-import 'package:edu_drop_down/edu_drop_down.dart';
 import 'package:edu_search_table_drop_down/controllers/models/search_model.dart';
 import 'package:edu_search_table_drop_down/edu_search_table_drop_down.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker_web/image_picker_web.dart';
 import 'package:lottie/lottie.dart';
 
 class NewSubSubjectPart extends StatefulWidget {
@@ -20,6 +22,15 @@ class NewSubSubjectPart extends StatefulWidget {
 
 class _NewSubSubjectPartState extends State<NewSubSubjectPart> {
   final subjectsBloc = SubjectBloc();
+  Uint8List? _image;
+
+  Future getImage() async {
+    final image = await ImagePickerWeb.getImageAsBytes();
+    if (image == null) return;
+    final imageTemporary = image;
+    _image = imageTemporary;
+    setState(() {});
+  }
 
   @override
   void initState() {
@@ -30,7 +41,6 @@ class _NewSubSubjectPartState extends State<NewSubSubjectPart> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: BlocBuilder<SubjectBloc, SubjectState>(
           bloc: subjectsBloc,
@@ -184,45 +194,78 @@ class _NewSubSubjectPartState extends State<NewSubSubjectPart> {
                                       ),
                                     ),
                                     const SizedBox(height: 40 / 1.5),
-                                    DottedBorder(
-                                      color: const Color(0xFF5D5FEF),
-                                      //color of dotted/dash line
-                                      strokeWidth: 1,
-                                      //thickness of dash/dots
-                                      dashPattern: [10, 6],
-                                      radius: const Radius.circular(6),
-                                      child: Container(
-                                        alignment: Alignment.center,
-                                        height: 340 / 1.4,
-                                        width: 800,
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(6),
-                                        ),
-                                        child: Container(
-                                          alignment: Alignment.center,
-                                          width: 200 / 1.2,
-                                          height: 60 / 1.2,
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(6),
-                                            border: Border.all(
-                                              width: 1,
-                                              color: const Color(0xFFCCD3DB),
+                                    _image == null
+                                        ? DottedBorder(
+                                            color: const Color(0xFF5D5FEF),
+                                            strokeWidth: 1,
+                                            dashPattern: const [10, 6],
+                                            radius: const Radius.circular(6),
+                                            child: Container(
+                                              alignment: Alignment.center,
+                                              height: 340 / 1.4,
+                                              width: 800,
+                                              decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(6),
+                                              ),
+                                              child: InkWell(
+                                                onTap: () {
+                                                  getImage();
+                                                },
+                                                child: Container(
+                                                  alignment: Alignment.center,
+                                                  width: 200 / 1.2,
+                                                  height: 60 / 1.2,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            6),
+                                                    border: Border.all(
+                                                      width: 1,
+                                                      color: const Color(
+                                                          0xFFCCD3DB),
+                                                    ),
+                                                  ),
+                                                  child: const Text(
+                                                    "Rasmni tanlang",
+                                                    style: TextStyle(
+                                                      color: Color(0xFF726BEA),
+                                                      fontSize: 16,
+                                                      fontFamily: "Inter",
+                                                      fontWeight: medium,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          )
+                                        : Container(
+                                            alignment: Alignment.topRight,
+                                            height: 340 / 1.4,
+                                            width: 800,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(6),
+                                              image: DecorationImage(
+                                                image: MemoryImage(_image!),
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                            child: MouseRegion(
+                                              cursor: SystemMouseCursors.click,
+                                              child: GestureDetector(
+                                                onTap: () {
+                                                  getImage();
+                                                },
+                                                child: Image.asset(
+                                                  "assets/images/pensilk.png",
+                                                  width: 24,
+                                                  height: 24,
+                                                  color: Colors.white,
+                                                ),
+                                              ),
                                             ),
                                           ),
-                                          child: const Text(
-                                            "Rasmni tanlang",
-                                            style: TextStyle(
-                                              color: Color(0xFF726BEA),
-                                              fontSize: 16,
-                                              fontFamily: "Inter",
-                                              fontWeight: medium,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
                                   ],
                                 ),
                               ),

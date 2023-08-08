@@ -41,7 +41,9 @@ class DashBoard extends StatelessWidget {
                             elements: ["Home", "Ichki tizim", "Hodimlar"],
                           ),
                         ),
-                        Expanded(child: NewSubSubjectPart()),
+                        Expanded(
+                          child: SubSubjectPart(),
+                        ),
                       ],
                     ),
                   ),

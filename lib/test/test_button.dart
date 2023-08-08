@@ -9,13 +9,11 @@ class TestButton extends StatefulWidget {
   final TextStyle hinTextStyle;
   final String icon;
 
-
   const TestButton({
     super.key,
     this.height = 40,
     this.width = 250,
     this.icon = "assets/calendar.png",
-
     this.contentHeight = 300,
     this.hinText = "",
     this.hinTextStyle = const TextStyle(
@@ -36,23 +34,22 @@ class _TestButtonState extends State<TestButton> {
   OverlayEntry? entry;
   final layerLink = LayerLink();
   DateTime dateTime = DateTime(2023, 1, 1, 10, 20);
-  String textstst = "";
+  String datetime = "";
 
   void showOverlay() {
     final overlay = Overlay.of(context);
     final renderBox = context.findRenderObject() as RenderBox;
     final size = renderBox.size;
     entry = OverlayEntry(
-      builder: (context) =>
-          Positioned(
-            width: size.width,
-            child: CompositedTransformFollower(
-              showWhenUnlinked: false,
-              link: layerLink,
-              offset: Offset(0, size.height + 8),
-              child: buildOverlay(),
-            ),
-          ),
+      builder: (context) => Positioned(
+        width: size.width,
+        child: CompositedTransformFollower(
+          showWhenUnlinked: false,
+          link: layerLink,
+          offset: Offset(0, size.height + 8),
+          child: buildOverlay(),
+        ),
+      ),
     );
     overlay.insert(entry!);
   }
@@ -84,7 +81,8 @@ class _TestButtonState extends State<TestButton> {
             hideOverlay();
           },
           onSubmit: (p0) {
-            textstst = p0.toString().toString().substring(0, 10);
+            datetime = p0.toString().toString().substring(0, 10);
+            isOverlayOn = false;
             setState(() {});
             hideOverlay();
           },
@@ -98,28 +96,39 @@ class _TestButtonState extends State<TestButton> {
   Widget build(BuildContext context) {
     return CompositedTransformTarget(
       link: layerLink,
-      child: Container(
-        height: widget.height,
-        width: widget.width,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5),
-          border: Border.all(
-            width: 1,
-            color: const Color(0xFFD0D5DD),
+      child: GestureDetector(
+        onTap: () {
+          if (isOverlayOn == false) {
+            showOverlay();
+            isOverlayOn = true;
+            setState(() {});
+          } else if (isOverlayOn == true) {
+            hideOverlay();
+            isOverlayOn = false;
+            setState(() {});
+          }
+        },
+        child: Container(
+          height: widget.height,
+          width: widget.width,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(5),
+            border: Border.all(
+              width: 1,
+              color: const Color(0xFFD0D5DD),
+            ),
           ),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(textstst),
-            InkWell(
-                onTap: () {
-                  showOverlay();
-                  isOverlayOn = true;
-                  setState(() {});
-                },
-                child: Container(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  datetime,
+                  style: const TextStyle(fontSize: 14),
+                ),
+                Container(
                   alignment: Alignment.center,
                   height: widget.height,
                   width: widget.height,
@@ -136,8 +145,9 @@ class _TestButtonState extends State<TestButton> {
                     height: widget.height / 2,
                   ),
                 ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

@@ -13,7 +13,7 @@ import 'package:dio/dio.dart';
 
 part 'api_service.g.dart';
 
-@RestApi(baseUrl: "https://a388-84-54-78-200.ngrok-free.app/api")
+@RestApi(baseUrl: "https://4680-84-54-80-231.ngrok-free.app/api")
 abstract class ApiService {
   factory ApiService(Dio dio) = _ApiService;
 

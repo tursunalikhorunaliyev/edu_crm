@@ -82,6 +82,7 @@ class _EduDataPickerFieldState extends State<EduDataPickerField> {
           },
           onSubmit: (p0) {
             datetime = p0.toString().toString().substring(0, 10);
+            isOverlayOn = false;
             setState(() {});
             hideOverlay();
           },
@@ -95,50 +96,59 @@ class _EduDataPickerFieldState extends State<EduDataPickerField> {
   Widget build(BuildContext context) {
     return CompositedTransformTarget(
       link: layerLink,
-      child: InkWell(
+      child: GestureDetector(
         onTap: () {
-          showOverlay();
-          isOverlayOn = true;
-          setState(() {});
+          if (isOverlayOn == false) {
+            showOverlay();
+            isOverlayOn = true;
+            setState(() {});
+          } else if (isOverlayOn == true) {
+            hideOverlay();
+            isOverlayOn = false;
+            setState(() {});
+          }
         },
-        child: Container(
-          height: widget.height,
-          width: widget.width,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5),
-            border: Border.all(
-              width: 1,
-              color: const Color(0xFFD0D5DD),
+        child: MouseRegion(
+          cursor: SystemMouseCursors.click,
+          child: Container(
+            height: widget.height,
+            width: widget.width,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5),
+              border: Border.all(
+                width: 1,
+                color: const Color(0xFFD0D5DD),
+              ),
             ),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.only(left: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  datetime,
-                  style: const TextStyle(fontSize: 14),
-                ),
-                Container(
-                  alignment: Alignment.center,
-                  height: widget.height,
-                  width: widget.height,
-                  decoration: const BoxDecoration(
-                    color: Color(0xFFDCE0E4),
-                    borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(4),
-                      topRight: Radius.circular(4),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    datetime,
+                    style: const TextStyle(fontSize: 14),
+                  ),
+                  Container(
+                    alignment: Alignment.center,
+                    height: widget.height,
+                    width: widget.height,
+                    decoration: const BoxDecoration(
+                      color: Color(0xFFDCE0E4),
+                      borderRadius: BorderRadius.only(
+                        bottomRight: Radius.circular(4),
+                        topRight: Radius.circular(4),
+                      ),
+                    ),
+                    child: Image.asset(
+                      widget.icon,
+                      width: widget.height / 2,
+                      height: widget.height / 2,
                     ),
                   ),
-                  child: Image.asset(
-                    widget.icon,
-                    width: widget.height / 2,
-                    height: widget.height / 2,
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

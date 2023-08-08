@@ -6,7 +6,6 @@ class SideBarAnimatedButton extends StatefulWidget {
   final String icon;
   final String text;
   final double contentHeight;
-
   Function(int index)? onChanged;
   SideBarAnimatedButton({
     super.key,
