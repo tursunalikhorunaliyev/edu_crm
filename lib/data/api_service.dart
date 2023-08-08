@@ -8,13 +8,12 @@ import 'package:edu_crm/domen/entity/physicalstuffcreate/stuff_category_create_m
 import 'package:edu_crm/domen/entity/stuffcategories.dart/stuff_categories_model.dart';
 import 'package:edu_crm/domen/entity/stuffcategory/category_model.dart';
 import 'package:edu_crm/domen/entity/subjects/subject_model.dart';
-import 'package:edu_crm/domen/entity/subsubject/sub_subject_model.dart';
 import 'package:retrofit/http.dart';
 import 'package:dio/dio.dart';
 
 part 'api_service.g.dart';
 
-@RestApi(baseUrl: "https://b7ec-213-230-78-235.ngrok-free.app/api")
+@RestApi(baseUrl: "https://a388-84-54-78-200.ngrok-free.app/api")
 abstract class ApiService {
   factory ApiService(Dio dio) = _ApiService;
 

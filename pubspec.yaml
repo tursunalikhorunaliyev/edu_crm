@@ -48,8 +48,10 @@ dependencies:
   image_network: ^2.5.4+1
   cached_network_image: ^3.2.3
   dotted_border: ^2.0.0+3
-  edu_search_table_drop_down: ^0.1.1
+  edu_search_table_drop_down: ^0.1.4
   lottie: ^2.5.0
+  flutter_holo_date_picker: ^1.1.0
+  syncfusion_flutter_datepicker: ^22.2.7
   
 dev_dependencies:
   flutter_test:

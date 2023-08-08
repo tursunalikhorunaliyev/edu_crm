@@ -114,7 +114,6 @@ class NewFacePart extends StatelessWidget {
                           SizedBox(height: 6),
                           EduDataPickerField(
                             width: 460 / 1.5,
-                            text: "MM / DD / YYYY",
                             height: 40,
                           ),
                           SizedBox(height: 30),

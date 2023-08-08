@@ -1,34 +1,29 @@
-import 'package:edu_crm/utils/app_const.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-//SideBarButton
+import 'package:syncfusion_flutter_datepicker/datepicker.dart';
+
 class TestButton extends StatefulWidget {
-  final String prefixIconName;
-  final bool isNew;
-  final bool isNotification;
-  final int notificationCount;
-  final String text;
-  final double iconWidth;
-  final double iconHeight;
-  final double suffixIconHeight;
-  final double borderRadius;
-  final double horizontalPadding;
-  final double suffixTextSize;
-  final bool onTapped;
+  final double height;
+  final double width;
+  final double contentHeight;
+  final String hinText;
+  final TextStyle hinTextStyle;
+  final String icon;
+
+
   const TestButton({
     super.key,
-    this.suffixTextSize = 14 / 1.5,
-    this.horizontalPadding = 10,
-    this.borderRadius = 5,
-    this.prefixIconName = "",
-    this.isNew = false,
-    this.isNotification = false,
-    this.notificationCount = 0,
-    this.text = "",
-    this.iconWidth = 10,
-    this.iconHeight = 10,
-    this.suffixIconHeight = 20,
-    this.onTapped = false,
+    this.height = 40,
+    this.width = 250,
+    this.icon = "assets/calendar.png",
+
+    this.contentHeight = 300,
+    this.hinText = "",
+    this.hinTextStyle = const TextStyle(
+      color: Color.fromARGB(121, 97, 104, 114),
+      fontFamily: "Inter",
+      fontWeight: FontWeight.w400,
+      fontSize: 14,
+    ),
   });
 
   @override
@@ -36,103 +31,113 @@ class TestButton extends StatefulWidget {
 }
 
 class _TestButtonState extends State<TestButton> {
-  @override
-  void initState() {
-    super.initState();
+  bool isOverlayOn = false;
+  final textEdit = TextEditingController();
+  OverlayEntry? entry;
+  final layerLink = LayerLink();
+  DateTime dateTime = DateTime(2023, 1, 1, 10, 20);
+  String textstst = "";
+
+  void showOverlay() {
+    final overlay = Overlay.of(context);
+    final renderBox = context.findRenderObject() as RenderBox;
+    final size = renderBox.size;
+    entry = OverlayEntry(
+      builder: (context) =>
+          Positioned(
+            width: size.width,
+            child: CompositedTransformFollower(
+              showWhenUnlinked: false,
+              link: layerLink,
+              offset: Offset(0, size.height + 8),
+              child: buildOverlay(),
+            ),
+          ),
+    );
+    overlay.insert(entry!);
+  }
+
+  void hideOverlay() {
+    entry?.remove();
+    entry = null;
+  }
+
+  Widget buildOverlay() {
+    return Material(
+      elevation: 0,
+      child: Container(
+        height: widget.contentHeight,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(
+            width: 1,
+            color: const Color(0xFFD0D5DD),
+          ),
+        ),
+        child: SfDateRangePicker(
+          initialDisplayDate: dateTime,
+          showActionButtons: true,
+          maxDate: DateTime(2100),
+          initialSelectedDate: dateTime,
+          onCancel: () {
+            hideOverlay();
+          },
+          onSubmit: (p0) {
+            textstst = p0.toString().toString().substring(0, 10);
+            setState(() {});
+            hideOverlay();
+          },
+          selectionMode: DateRangePickerSelectionMode.single,
+        ),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
-      cursor: SystemMouseCursors.click,
-      child: GestureDetector(
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 300),
-          height: 48 / 1.5,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            color: widget.onTapped ? const Color(0xFF5D5FEF) : Colors.white,
-            borderRadius: BorderRadius.circular(widget.borderRadius),
+    return CompositedTransformTarget(
+      link: layerLink,
+      child: Container(
+        height: widget.height,
+        width: widget.width,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(5),
+          border: Border.all(
+            width: 1,
+            color: const Color(0xFFD0D5DD),
           ),
-          padding: EdgeInsets.symmetric(horizontal: widget.horizontalPadding),
-          child: Row(
-            children: [
-              widget.prefixIconName == ""
-                  ? const SizedBox()
-                  : Image.asset(
-                      "assets/${widget.prefixIconName}",
-                      width: widget.iconWidth,
-                      height: widget.iconHeight,
-                      color: widget.onTapped
-                          ? Colors.white
-                          : const Color(0xFF3B424A),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(textstst),
+            InkWell(
+                onTap: () {
+                  showOverlay();
+                  isOverlayOn = true;
+                  setState(() {});
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  height: widget.height,
+                  width: widget.height,
+                  decoration: const BoxDecoration(
+                    color: Color(0xFFDCE0E4),
+                    borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(4),
+                      topRight: Radius.circular(4),
                     ),
-              const SizedBox(
-                width: 12 / 1.5,
-              ),
-              Text(
-                widget.text,
-                style: TextStyle(
-                  fontFamily: "Inter",
-                  color:
-                      widget.onTapped ? Colors.white : const Color(0xFF3B424A),
-                  fontWeight: medium,
+                  ),
+                  child: Image.asset(
+                    widget.icon,
+                    width: widget.height / 2,
+                    height: widget.height / 2,
+                  ),
                 ),
-              ),
-              const Spacer(),
-              widget.isNew
-                  ? Container(
-                      width: 49 / 1.5,
-                      height: widget.suffixIconHeight,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: widget.isNew
-                            ? widget.onTapped
-                                ? Colors.white
-                                : const Color(0xFF10B981)
-                            : const Color(0xFF5D5FEF),
-                      ),
-                      child: Text(
-                        widget.isNotification
-                            ? "+${widget.notificationCount}"
-                            : "new",
-                        style: TextStyle(
-                          color: widget.onTapped
-                              ? const Color(0xFF10B981)
-                              : Colors.white,
-                          fontFamily: "Inter",
-                          fontSize: widget.suffixTextSize,
-                        ),
-                      ),
-                    )
-                  : widget.isNotification
-                      ? Container(
-                          width: 49 / 1.5,
-                          height: widget.suffixIconHeight,
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: widget.onTapped
-                                ? Colors.white
-                                : const Color(0xFF5D5FEF),
-                          ),
-                          child: Text(
-                            widget.isNotification
-                                ? "+${widget.notificationCount}"
-                                : "new",
-                            style: TextStyle(
-                              color: widget.onTapped
-                                  ? const Color(0xFF5D5FEF)
-                                  : Colors.white,
-                              fontFamily: "Inter",
-                              fontSize: widget.suffixTextSize,
-                            ),
-                          ),
-                        )
-                      : const SizedBox(),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

@@ -30,17 +30,7 @@ class _NewSubSubjectPartState extends State<NewSubSubjectPart> {
 
   @override
   Widget build(BuildContext context) {
-    List<SearchModel> list = [
-      SearchModel(id: 1, name: "name"),
-      SearchModel(id: 2, name: "mane"),
-      SearchModel(id: 3, name: "patd"),
-      SearchModel(id: 4, name: "name"),
-      SearchModel(id: 5, name: "mane"),
-      SearchModel(id: 6, name: "patd"),
-      SearchModel(id: 7, name: "name"),
-      SearchModel(id: 8, name: "mane"),
-      SearchModel(id: 9, name: "patd"),
-    ];
+
     return Scaffold(
       body: BlocBuilder<SubjectBloc, SubjectState>(
           bloc: subjectsBloc,
@@ -97,7 +87,7 @@ class _NewSubSubjectPartState extends State<NewSubSubjectPart> {
                                                 }).toList(),
                                                 contentHeight: 220,
                                                 height: 34,
-                                                hinText: "Fan qidirish",
+                                                hinText: "Fanni tanlang",
                                               ),
                                             ),
                                             const SizedBox(height: 30),
@@ -112,7 +102,6 @@ class _NewSubSubjectPartState extends State<NewSubSubjectPart> {
                                             ),
                                             const SizedBox(height: 6),
                                             const EduDataPickerField(
-                                              text: "08.07.2023",
                                               height: 34,
                                               width: 250,
                                             ),
@@ -143,7 +132,7 @@ class _NewSubSubjectPartState extends State<NewSubSubjectPart> {
                                                 }).toList(),
                                                 contentHeight: 220,
                                                 height: 34,
-                                                hinText: "Yonalish qidirish",
+                                                hinText: "Yo'nalishni tanlang",
                                               ),
                                             ),
                                             const SizedBox(height: 30),
@@ -158,7 +147,6 @@ class _NewSubSubjectPartState extends State<NewSubSubjectPart> {
                                             ),
                                             const SizedBox(height: 6),
                                             const EduDataPickerField(
-                                              text: "08.07.2023",
                                               width: 250,
                                               height: 34,
                                             ),

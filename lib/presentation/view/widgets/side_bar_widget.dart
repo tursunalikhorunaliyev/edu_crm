@@ -1,4 +1,5 @@
 import 'package:edu_crm/presentation/view/widgets/side_bar_animated_button.dart';
+import 'package:edu_crm/presentation/view/widgets/side_bar_button.dart';
 import 'package:edu_crm/presentation/view/widgets/text_plus_widget.dart';
 import 'package:edu_crm/test/test_button.dart';
 import 'package:flutter/material.dart';
@@ -70,7 +71,7 @@ class _SideBarWidgetState extends State<SideBarWidget> {
                   profile = false;
                   setState(() {});
                 },
-                child: TestButton(
+                child: SideBarButton(
                   prefixIconName: "images/graph.png",
                   text: "Dashboard",
                   iconHeight: 24.06 / 1.5,
@@ -91,7 +92,7 @@ class _SideBarWidgetState extends State<SideBarWidget> {
                   profile = false;
                   setState(() {});
                 },
-                child: TestButton(
+                child: SideBarButton(
                   prefixIconName: "images/chart-square.png",
                   text: "Analitika",
                   iconHeight: 24.06 / 1.5,
@@ -139,7 +140,7 @@ class _SideBarWidgetState extends State<SideBarWidget> {
                   profile = false;
                   setState(() {});
                 },
-                child: TestButton(
+                child: SideBarButton(
                   prefixIconName: "images/chart-square.png",
                   text: "Yo’nalishlar",
                   iconHeight: 24.06 / 1.5,
@@ -160,7 +161,7 @@ class _SideBarWidgetState extends State<SideBarWidget> {
                   profile = false;
                   setState(() {});
                 },
-                child: TestButton(
+                child: SideBarButton(
                   iconHeight: 24.06 / 1.5,
                   iconWidth: 24.06 / 1.5,
                   prefixIconName: "images/calendar.png",
@@ -179,7 +180,7 @@ class _SideBarWidgetState extends State<SideBarWidget> {
                   profile = false;
                   setState(() {});
                 },
-                child: TestButton(
+                child: SideBarButton(
                   iconHeight: 24.06 / 1.5,
                   iconWidth: 24.06 / 1.5,
                   prefixIconName: "images/Notes.png",
@@ -206,7 +207,7 @@ class _SideBarWidgetState extends State<SideBarWidget> {
                   profile = !profile;
                   setState(() {});
                 },
-                child: TestButton(
+                child: SideBarButton(
                   iconHeight: 24.06 / 1.5,
                   iconWidth: 24.06 / 1.5,
                   prefixIconName: "images/setting-2.png",

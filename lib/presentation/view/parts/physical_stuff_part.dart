@@ -201,7 +201,6 @@ class PhysicalStuffPart extends StatelessWidget {
                                           const Expanded(
                                             child: EduDataPickerField(
                                               width: double.infinity,
-                                              text: "31 / 07 / 2023",
                                             ),
                                           ),
                                           const EduBadgeText(text: "Sanagacha"),
@@ -209,7 +208,7 @@ class PhysicalStuffPart extends StatelessWidget {
                                           const Expanded(
                                             child: EduDataPickerField(
                                               width: double.infinity,
-                                              text: "Mavjud emas",
+
                                             ),
                                           ),
                                           Row(
